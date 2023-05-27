@@ -27,12 +27,15 @@
             // 
             // buttonBack
             // 
+            this.buttonBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(139)))), ((int)(((byte)(202)))));
+            this.buttonBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonBack.ForeColor = System.Drawing.Color.White;
             this.buttonBack.Location = new System.Drawing.Point(20, 20);
             this.buttonBack.Name = "buttonBack";
             this.buttonBack.Size = new System.Drawing.Size(80, 30);
             this.buttonBack.TabIndex = 1;
             this.buttonBack.Text = "Back";
-            this.buttonBack.UseVisualStyleBackColor = true;
+            this.buttonBack.UseVisualStyleBackColor = false;
             this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
             // 
             // panelFiles
@@ -74,7 +77,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Course";
             this.ResumeLayout(false);
-
         }
     }
 }

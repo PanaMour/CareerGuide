@@ -16,5 +16,12 @@ namespace CareerGuide
         {
             InitializeComponent();
         }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new Home().ShowDialog();
+            this.Close();
+        }
     }
 }
