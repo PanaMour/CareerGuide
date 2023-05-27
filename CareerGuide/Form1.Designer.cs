@@ -17,80 +17,83 @@
 
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.usernameTextBox = new System.Windows.Forms.TextBox();
-            this.passwordTextBox = new System.Windows.Forms.TextBox();
-            this.loginButton = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            label1 = new Label();
+            usernameTextBox = new TextBox();
+            passwordTextBox = new TextBox();
+            loginButton = new Button();
+            SuspendLayout();
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.SteelBlue;
-            this.label1.Location = new System.Drawing.Point(140, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 45);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Login";
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.SteelBlue;
+            label1.Location = new Point(140, 20);
+            label1.Name = "label1";
+            label1.Size = new Size(104, 45);
+            label1.TabIndex = 0;
+            label1.Text = "Login";
             // 
             // usernameTextBox
             // 
-            this.usernameTextBox.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.usernameTextBox.Location = new System.Drawing.Point(30, 80);
-            this.usernameTextBox.Name = "usernameTextBox";
-            this.usernameTextBox.PlaceholderText = "Username";
-            this.usernameTextBox.Size = new System.Drawing.Size(320, 25);
-            this.usernameTextBox.TabIndex = 1;
+            usernameTextBox.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            usernameTextBox.Location = new Point(30, 80);
+            usernameTextBox.Name = "usernameTextBox";
+            usernameTextBox.PlaceholderText = "Username";
+            usernameTextBox.Size = new Size(320, 25);
+            usernameTextBox.TabIndex = 1;
+            usernameTextBox.Text = "student1";
             // 
             // passwordTextBox
             // 
-            this.passwordTextBox.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.passwordTextBox.Location = new System.Drawing.Point(30, 120);
-            this.passwordTextBox.Name = "passwordTextBox";
-            this.passwordTextBox.PasswordChar = '*';
-            this.passwordTextBox.PlaceholderText = "Password";
-            this.passwordTextBox.Size = new System.Drawing.Size(320, 25);
-            this.passwordTextBox.TabIndex = 2;
+            passwordTextBox.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            passwordTextBox.Location = new Point(30, 120);
+            passwordTextBox.Name = "passwordTextBox";
+            passwordTextBox.PasswordChar = '*';
+            passwordTextBox.PlaceholderText = "Password";
+            passwordTextBox.Size = new Size(320, 25);
+            passwordTextBox.TabIndex = 2;
+            passwordTextBox.Text = "password1";
             // 
             // loginButton
             // 
-            this.loginButton.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.loginButton.Location = new System.Drawing.Point(150, 170);
-            this.loginButton.Name = "loginButton";
-            this.loginButton.Size = new System.Drawing.Size(80, 30);
-            this.loginButton.TabIndex = 3;
-            this.loginButton.Text = "Login";
-            this.loginButton.UseVisualStyleBackColor = true;
-            this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
+            loginButton.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            loginButton.Location = new Point(150, 170);
+            loginButton.Name = "loginButton";
+            loginButton.Size = new Size(80, 30);
+            loginButton.TabIndex = 3;
+            loginButton.Text = "Login";
+            loginButton.UseVisualStyleBackColor = true;
+            loginButton.Click += loginButton_Click;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(380, 248);
-            this.Controls.Add(this.loginButton);
-            this.Controls.Add(this.passwordTextBox);
-            this.Controls.Add(this.usernameTextBox);
-            this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
-            this.Name = "Form1";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Login";
-            this.Load += new System.EventHandler(this.Form1_Load_1);
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
+            ClientSize = new Size(380, 248);
+            Controls.Add(loginButton);
+            Controls.Add(passwordTextBox);
+            Controls.Add(usernameTextBox);
+            Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Login";
+            Load += Form1_Load_1;
+            ResumeLayout(false);
+            PerformLayout();
         }
 
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox usernameTextBox;
-        private System.Windows.Forms.TextBox passwordTextBox;
-        private System.Windows.Forms.Button loginButton;
+        private Label label1;
+        private TextBox usernameTextBox;
+        private TextBox passwordTextBox;
+        private Button loginButton;
     }
 }

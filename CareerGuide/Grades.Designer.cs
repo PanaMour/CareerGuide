@@ -19,6 +19,7 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Grades));
             labelStudentName = new Label();
             labelSemester = new Label();
             dataGridViewGrades = new DataGridView();
@@ -77,6 +78,7 @@
             Controls.Add(labelStudentName);
             Controls.Add(backButton);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Grades";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Grades";

@@ -3,10 +3,10 @@
     partial class Course
     {
         private System.ComponentModel.IContainer components = null;
-        private System.Windows.Forms.Button buttonBack;
-        private System.Windows.Forms.Panel panelFiles;
-        private System.Windows.Forms.Panel panelTests;
-        private System.Windows.Forms.Panel panelQuestionnaires;
+        private Button buttonBack;
+        private Panel panelFiles;
+        private Panel panelTests;
+        private Panel panelQuestionnaires;
 
         protected override void Dispose(bool disposing)
         {
@@ -19,64 +19,66 @@
 
         private void InitializeComponent()
         {
-            this.buttonBack = new System.Windows.Forms.Button();
-            this.panelFiles = new System.Windows.Forms.Panel();
-            this.panelTests = new System.Windows.Forms.Panel();
-            this.panelQuestionnaires = new System.Windows.Forms.Panel();
-            this.SuspendLayout();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Course));
+            buttonBack = new Button();
+            panelFiles = new Panel();
+            panelTests = new Panel();
+            panelQuestionnaires = new Panel();
+            SuspendLayout();
             // 
             // buttonBack
             // 
-            this.buttonBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(139)))), ((int)(((byte)(202)))));
-            this.buttonBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonBack.ForeColor = System.Drawing.Color.White;
-            this.buttonBack.Location = new System.Drawing.Point(20, 20);
-            this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(80, 30);
-            this.buttonBack.TabIndex = 1;
-            this.buttonBack.Text = "Back";
-            this.buttonBack.UseVisualStyleBackColor = false;
-            this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
+            buttonBack.BackColor = Color.FromArgb(66, 139, 202);
+            buttonBack.FlatStyle = FlatStyle.Flat;
+            buttonBack.ForeColor = Color.White;
+            buttonBack.Location = new Point(20, 20);
+            buttonBack.Name = "buttonBack";
+            buttonBack.Size = new Size(80, 30);
+            buttonBack.TabIndex = 1;
+            buttonBack.Text = "Back";
+            buttonBack.UseVisualStyleBackColor = false;
+            buttonBack.Click += buttonBack_Click;
             // 
             // panelFiles
             // 
-            this.panelFiles.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelFiles.Location = new System.Drawing.Point(20, 70);
-            this.panelFiles.Name = "panelFiles";
-            this.panelFiles.Size = new System.Drawing.Size(760, 150);
-            this.panelFiles.TabIndex = 2;
+            panelFiles.BorderStyle = BorderStyle.FixedSingle;
+            panelFiles.Location = new Point(20, 70);
+            panelFiles.Name = "panelFiles";
+            panelFiles.Size = new Size(760, 150);
+            panelFiles.TabIndex = 2;
             // 
             // panelTests
             // 
-            this.panelTests.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelTests.Location = new System.Drawing.Point(20, 230);
-            this.panelTests.Name = "panelTests";
-            this.panelTests.Size = new System.Drawing.Size(760, 150);
-            this.panelTests.TabIndex = 3;
+            panelTests.BorderStyle = BorderStyle.FixedSingle;
+            panelTests.Location = new Point(20, 230);
+            panelTests.Name = "panelTests";
+            panelTests.Size = new Size(760, 150);
+            panelTests.TabIndex = 3;
             // 
             // panelQuestionnaires
             // 
-            this.panelQuestionnaires.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelQuestionnaires.Location = new System.Drawing.Point(20, 390);
-            this.panelQuestionnaires.Name = "panelQuestionnaires";
-            this.panelQuestionnaires.Size = new System.Drawing.Size(760, 150);
-            this.panelQuestionnaires.TabIndex = 4;
+            panelQuestionnaires.BorderStyle = BorderStyle.FixedSingle;
+            panelQuestionnaires.Location = new Point(20, 390);
+            panelQuestionnaires.Name = "panelQuestionnaires";
+            panelQuestionnaires.Size = new Size(760, 150);
+            panelQuestionnaires.TabIndex = 4;
             // 
             // Course
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(800, 600);
-            this.Controls.Add(this.panelQuestionnaires);
-            this.Controls.Add(this.panelTests);
-            this.Controls.Add(this.panelFiles);
-            this.Controls.Add(this.buttonBack);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "Course";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Course";
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
+            ClientSize = new Size(800, 600);
+            Controls.Add(panelQuestionnaires);
+            Controls.Add(panelTests);
+            Controls.Add(panelFiles);
+            Controls.Add(buttonBack);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Name = "Course";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Course";
+            ResumeLayout(false);
         }
     }
 }

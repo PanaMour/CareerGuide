@@ -12,15 +12,21 @@ namespace CareerGuide
 {
     public partial class Grades : Form
     {
+        String username = "";
         public Grades()
         {
             InitializeComponent();
+        }
+        public Grades(string arg)
+        {
+            InitializeComponent();
+            username = arg;
         }
 
         private void backButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new Home().ShowDialog();
+            new Home(username).ShowDialog();
             this.Close();
         }
 

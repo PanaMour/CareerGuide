@@ -12,9 +12,15 @@ namespace CareerGuide
 {
     public partial class Course : Form
     {
+        String username = "";
         public Course()
         {
             InitializeComponent();
+        }
+        public Course(string arg)
+        {
+            InitializeComponent();
+            username = arg;
         }
 
         private void Course_Load(object sender, EventArgs e)
@@ -25,7 +31,7 @@ namespace CareerGuide
         private void buttonBack_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new Home().ShowDialog();
+            new Home(username).ShowDialog();
             this.Close();
         }
     }

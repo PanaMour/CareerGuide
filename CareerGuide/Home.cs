@@ -12,15 +12,17 @@ namespace CareerGuide
 {
     public partial class Home : Form
     {
+        string username = "";
         public Home()
         {
             InitializeComponent();
         }
 
-        public Home(String username)
+        public Home(string arg)
         {
             InitializeComponent();
-            label2.Text = username;
+            label2.Text = arg;
+            username = arg;
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -31,49 +33,56 @@ namespace CareerGuide
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new Course().ShowDialog();
+            new Course(username).ShowDialog();
             this.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new Course().ShowDialog();
+            new Course(username).ShowDialog();
             this.Close();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new Course().ShowDialog();
+            new Course(username).ShowDialog();
             this.Close();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new Course().ShowDialog();
+            new Course(username).ShowDialog();
             this.Close();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new Course().ShowDialog();
+            new Course(username).ShowDialog();
             this.Close();
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new Course().ShowDialog();
+            new Course(username).ShowDialog();
             this.Close();
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new Grades().ShowDialog();
+            new Grades(username).ShowDialog();
+            this.Close();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new Form1().ShowDialog();
             this.Close();
         }
     }
