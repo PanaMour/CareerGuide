@@ -17,6 +17,12 @@ namespace CareerGuide
             InitializeComponent();
         }
 
+        public Home(String username)
+        {
+            InitializeComponent();
+            label2.Text = username;
+        }
+
         private void label2_Click(object sender, EventArgs e)
         {
 

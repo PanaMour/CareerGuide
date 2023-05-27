@@ -51,12 +51,13 @@
             dataGridViewGrades.Name = "dataGridViewGrades";
             dataGridViewGrades.Size = new Size(760, 400);
             dataGridViewGrades.TabIndex = 3;
+            dataGridViewGrades.CellContentClick += dataGridViewGrades_CellContentClick;
             // 
             // backButton
             // 
-            backButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(139)))), ((int)(((byte)(202)))));
-            backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            backButton.ForeColor = System.Drawing.Color.White;
+            backButton.BackColor = Color.FromArgb(66, 139, 202);
+            backButton.FlatStyle = FlatStyle.Flat;
+            backButton.ForeColor = Color.White;
             backButton.Location = new Point(20, 20);
             backButton.Name = "backButton";
             backButton.Size = new Size(80, 30);
@@ -79,6 +80,7 @@
             Name = "Grades";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Grades";
+            Load += Grades_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridViewGrades).EndInit();
             ResumeLayout(false);
         }

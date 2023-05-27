@@ -23,5 +23,15 @@ namespace CareerGuide
             new Home().ShowDialog();
             this.Close();
         }
+
+        private void dataGridViewGrades_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void Grades_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
