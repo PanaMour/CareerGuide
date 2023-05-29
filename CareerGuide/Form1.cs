@@ -31,18 +31,19 @@ namespace CareerGuide
             {
                 conn.Open();
 
-                string query = "SELECT COUNT(*) FROM student WHERE username = @username AND password = @password";
+                string query = "SELECT id FROM student WHERE username = @username AND password = @password";
                 using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@username", username);
                     cmd.Parameters.AddWithValue("@password", password);
 
-                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+                    var result = cmd.ExecuteScalar();
 
-                    if (count == 1)
+                    if (result != null)
                     {
+                        int userId = Convert.ToInt32(result);
                         this.Hide();
-                        new Home(username).ShowDialog();
+                        new Home(username, userId).ShowDialog();
                         this.Close();
                     }
                     else
@@ -54,6 +55,7 @@ namespace CareerGuide
                 conn.Close();
             }
         }
+
 
     }
 }

@@ -15,16 +15,18 @@ namespace CareerGuide
     public partial class Home : Form
     {
         string username = "";
+        int id = 0;
         public Home()
         {
             InitializeComponent();
         }
 
-        public Home(string arg)
+        public Home(string arg, int arg2)
         {
             InitializeComponent();
             label2.Text = arg;
             username = arg;
+            id = arg2;
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -35,49 +37,49 @@ namespace CareerGuide
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new Course(username).ShowDialog();
+            new Course(username, id).ShowDialog();
             this.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new Course(username).ShowDialog();
+            new Course(username, id).ShowDialog();
             this.Close();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new Course(username).ShowDialog();
+            new Course(username, id).ShowDialog();
             this.Close();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new Course(username).ShowDialog();
+            new Course(username, id).ShowDialog();
             this.Close();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new Course(username).ShowDialog();
+            new Course(username, id).ShowDialog();
             this.Close();
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new Course(username).ShowDialog();
+            new Course(username, id).ShowDialog();
             this.Close();
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new Grades(username).ShowDialog();
+            new Grades(username, id).ShowDialog();
             this.Close();
         }
 

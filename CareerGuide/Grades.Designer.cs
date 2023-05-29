@@ -4,7 +4,6 @@
     {
         private System.ComponentModel.IContainer components = null;
         private Label labelStudentName;
-        private Label labelSemester;
         private DataGridView dataGridViewGrades;
         private Button backButton; // Added Button
 
@@ -21,9 +20,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Grades));
             labelStudentName = new Label();
-            labelSemester = new Label();
             dataGridViewGrades = new DataGridView();
             backButton = new Button();
+            comboBox1 = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dataGridViewGrades).BeginInit();
             SuspendLayout();
             // 
@@ -35,16 +34,6 @@
             labelStudentName.Size = new Size(710, 40);
             labelStudentName.TabIndex = 1;
             labelStudentName.Text = "Student: (Name)";
-            // 
-            // labelSemester
-            // 
-            labelSemester.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Point);
-            labelSemester.Location = new Point(50, 111);
-            labelSemester.Name = "labelSemester";
-            labelSemester.Size = new Size(710, 40);
-            labelSemester.TabIndex = 2;
-            labelSemester.Text = "Semester: (Semester)";
-            labelSemester.Click += labelSemester_Click;
             // 
             // dataGridViewGrades
             // 
@@ -68,14 +57,27 @@
             backButton.UseVisualStyleBackColor = false;
             backButton.Click += backButton_Click;
             // 
+            // comboBox1
+            // 
+            comboBox1.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "Semester 1", "Semester 2", "Semester 3", "Semester 4", "Semester 5", "Semester 6" });
+            comboBox1.Location = new Point(50, 108);
+            comboBox1.Margin = new Padding(4);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(244, 45);
+            comboBox1.TabIndex = 5;
+            comboBox1.Text = "Semester 1";
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            // 
             // Grades
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(800, 600);
+            Controls.Add(comboBox1);
             Controls.Add(dataGridViewGrades);
-            Controls.Add(labelSemester);
             Controls.Add(labelStudentName);
             Controls.Add(backButton);
             FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -87,5 +89,7 @@
             ((System.ComponentModel.ISupportInitialize)dataGridViewGrades).EndInit();
             ResumeLayout(false);
         }
+
+        private ComboBox comboBox1;
     }
 }
