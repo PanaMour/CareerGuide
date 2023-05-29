@@ -36,8 +36,6 @@
             button2 = new Button();
             button3 = new Button();
             button4 = new Button();
-            button5 = new Button();
-            button6 = new Button();
             button7 = new Button();
             button8 = new Button();
             SuspendLayout();
@@ -71,13 +69,14 @@
             // 
             comboBox1.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Semester 1", "Semester 2", "Semester 3", "Semester 4", "Semester 5", "Semester 6", "Semester 7", "Semester 8" });
+            comboBox1.Items.AddRange(new object[] { "Semester 1", "Semester 2", "Semester 3", "Semester 4", "Semester 5", "Semester 6" });
             comboBox1.Location = new Point(303, 129);
             comboBox1.Margin = new Padding(4);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(244, 45);
             comboBox1.TabIndex = 3;
             comboBox1.Text = "Semester 1";
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // button1
             // 
@@ -135,34 +134,6 @@
             button4.UseVisualStyleBackColor = true;
             button4.Click += button4_Click;
             // 
-            // button5
-            // 
-            button5.BackColor = Color.LightSteelBlue;
-            button5.Cursor = Cursors.Hand;
-            button5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            button5.Location = new Point(265, 632);
-            button5.Margin = new Padding(4);
-            button5.Name = "button5";
-            button5.Size = new Size(316, 95);
-            button5.TabIndex = 2;
-            button5.Text = "Course 5";
-            button5.UseVisualStyleBackColor = true;
-            button5.Click += button5_Click;
-            // 
-            // button6
-            // 
-            button6.BackColor = Color.LightSteelBlue;
-            button6.Cursor = Cursors.Hand;
-            button6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            button6.Location = new Point(265, 735);
-            button6.Margin = new Padding(4);
-            button6.Name = "button6";
-            button6.Size = new Size(316, 95);
-            button6.TabIndex = 1;
-            button6.Text = "Course 6";
-            button6.UseVisualStyleBackColor = true;
-            button6.Click += button6_Click;
-            // 
             // button7
             // 
             button7.BackColor = Color.LightSteelBlue;
@@ -196,11 +167,9 @@
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(815, 854);
+            ClientSize = new Size(815, 643);
             Controls.Add(button8);
             Controls.Add(button7);
-            Controls.Add(button6);
-            Controls.Add(button5);
             Controls.Add(button4);
             Controls.Add(button3);
             Controls.Add(button2);
@@ -214,6 +183,7 @@
             Name = "Home";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Home";
+            Load += Home_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -228,8 +198,6 @@
         private Button button2;
         private Button button3;
         private Button button4;
-        private Button button5;
-        private Button button6;
         private Button button7;
         private Button button8;
     }

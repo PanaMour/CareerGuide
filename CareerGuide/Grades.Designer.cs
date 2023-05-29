@@ -44,6 +44,7 @@
             labelSemester.Size = new Size(710, 40);
             labelSemester.TabIndex = 2;
             labelSemester.Text = "Semester: (Semester)";
+            labelSemester.Click += labelSemester_Click;
             // 
             // dataGridViewGrades
             // 
