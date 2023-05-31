@@ -24,6 +24,7 @@ namespace CareerGuide
         public Home(string arg, int arg2)
         {
             InitializeComponent();
+            comboBox1.Text = "Semester 1";
             label2.Text = arg;
             username = arg;
             id = arg2;

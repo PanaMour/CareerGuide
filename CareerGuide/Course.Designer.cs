@@ -75,6 +75,7 @@
             Controls.Add(buttonBack);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             Name = "Course";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Course";

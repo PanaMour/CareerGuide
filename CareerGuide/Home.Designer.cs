@@ -67,15 +67,14 @@
             // 
             // comboBox1
             // 
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox1.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
-            comboBox1.FormattingEnabled = true;
             comboBox1.Items.AddRange(new object[] { "Semester 1", "Semester 2", "Semester 3", "Semester 4", "Semester 5", "Semester 6" });
             comboBox1.Location = new Point(303, 129);
             comboBox1.Margin = new Padding(4);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(244, 45);
             comboBox1.TabIndex = 3;
-            comboBox1.Text = "Semester 1";
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // button1
@@ -178,8 +177,10 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4);
+            MaximizeBox = false;
             Name = "Home";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Home";

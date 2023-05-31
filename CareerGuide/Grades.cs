@@ -23,6 +23,7 @@ namespace CareerGuide
         public Grades(string arg, int arg2)
         {
             InitializeComponent();
+            comboBox1.Text = "Semester 1";
             username = arg;
             id = arg2;
             labelStudentName.Text = "Student: " + username;

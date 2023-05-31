@@ -37,9 +37,13 @@
             // 
             // dataGridViewGrades
             // 
+            dataGridViewGrades.AllowUserToAddRows = false;
+            dataGridViewGrades.AllowUserToDeleteRows = false;
+            dataGridViewGrades.AllowUserToOrderColumns = true;
             dataGridViewGrades.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewGrades.Location = new Point(20, 171);
             dataGridViewGrades.Name = "dataGridViewGrades";
+            dataGridViewGrades.ReadOnly = true;
             dataGridViewGrades.Size = new Size(760, 400);
             dataGridViewGrades.TabIndex = 3;
             dataGridViewGrades.CellContentClick += dataGridViewGrades_CellContentClick;
@@ -59,6 +63,7 @@
             // 
             // comboBox1
             // 
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox1.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             comboBox1.FormattingEnabled = true;
             comboBox1.Items.AddRange(new object[] { "Semester 1", "Semester 2", "Semester 3", "Semester 4", "Semester 5", "Semester 6" });
@@ -67,7 +72,6 @@
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(244, 45);
             comboBox1.TabIndex = 5;
-            comboBox1.Text = "Semester 1";
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // Grades
@@ -82,6 +86,7 @@
             Controls.Add(backButton);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             Name = "Grades";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Grades";
