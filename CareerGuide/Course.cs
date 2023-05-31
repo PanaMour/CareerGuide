@@ -14,15 +14,17 @@ namespace CareerGuide
     {
         String username = "";
         int id = 0;
+        int courseId = 0;
         public Course()
         {
             InitializeComponent();
         }
-        public Course(string arg, int arg2)
+        public Course(string arg, int arg2, int arg3)
         {
             InitializeComponent();
             username = arg;
             id = arg2;
+            courseId = arg3;
         }
 
         private void Course_Load(object sender, EventArgs e)
@@ -35,6 +37,21 @@ namespace CareerGuide
             this.Hide();
             new Home(username, id).ShowDialog();
             this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new Content(courseId).ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

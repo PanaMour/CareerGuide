@@ -16,6 +16,10 @@ namespace CareerGuide
     {
         string username = "";
         int id = 0;
+        int courseId1 = 0;
+        int courseId2 = 0;
+        int courseId3 = 0;
+        int courseId4 = 0;
         public Home()
         {
             InitializeComponent();
@@ -38,42 +42,28 @@ namespace CareerGuide
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new Course(username, id).ShowDialog();
+            new Course(username, id, courseId1).ShowDialog();
             this.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new Course(username, id).ShowDialog();
+            new Course(username, id, courseId2).ShowDialog();
             this.Close();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new Course(username, id).ShowDialog();
+            new Course(username, id, courseId3).ShowDialog();
             this.Close();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new Course(username, id).ShowDialog();
-            this.Close();
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            new Course(username, id).ShowDialog();
-            this.Close();
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            new Course(username, id).ShowDialog();
+            new Course(username, id, courseId4).ShowDialog();
             this.Close();
         }
 
@@ -98,7 +88,7 @@ namespace CareerGuide
             {
                 conn.Open();
 
-                string query = "SELECT course_name FROM course WHERE semester = @semester";
+                string query = "SELECT id, course_name FROM course WHERE semester = @semester";
                 using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@semester", 1);
@@ -108,23 +98,28 @@ namespace CareerGuide
                         int i = 1;
                         while (reader.Read() && i <= 4)
                         {
-                            // Get the course name
-                            string courseName = reader.GetString(0);
+                            // Get the course name and id
+                            int courseId = reader.GetInt32(0);
+                            string courseName = reader.GetString(1);
 
                             // Assign the course name to a button
                             switch (i)
                             {
                                 case 1:
                                     button1.Text = courseName;
+                                    courseId1 = courseId;
                                     break;
                                 case 2:
                                     button2.Text = courseName;
+                                    courseId2 = courseId;
                                     break;
                                 case 3:
                                     button3.Text = courseName;
+                                    courseId3 = courseId;
                                     break;
                                 case 4:
                                     button4.Text = courseName;
+                                    courseId4 = courseId;
                                     break;
                             }
 
@@ -136,6 +131,7 @@ namespace CareerGuide
                 conn.Close();
             }
         }
+
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {

@@ -4,9 +4,6 @@
     {
         private System.ComponentModel.IContainer components = null;
         private Button buttonBack;
-        private Panel panelFiles;
-        private Panel panelTests;
-        private Panel panelQuestionnaires;
 
         protected override void Dispose(bool disposing)
         {
@@ -21,9 +18,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Course));
             buttonBack = new Button();
-            panelFiles = new Panel();
-            panelTests = new Panel();
-            panelQuestionnaires = new Panel();
+            button1 = new Button();
+            button2 = new Button();
+            button3 = new Button();
             SuspendLayout();
             // 
             // buttonBack
@@ -39,39 +36,45 @@
             buttonBack.UseVisualStyleBackColor = false;
             buttonBack.Click += buttonBack_Click;
             // 
-            // panelFiles
+            // button1
             // 
-            panelFiles.BorderStyle = BorderStyle.FixedSingle;
-            panelFiles.Location = new Point(20, 70);
-            panelFiles.Name = "panelFiles";
-            panelFiles.Size = new Size(760, 150);
-            panelFiles.TabIndex = 2;
+            button1.Location = new Point(20, 86);
+            button1.Name = "button1";
+            button1.Size = new Size(200, 200);
+            button1.TabIndex = 2;
+            button1.Text = "Content";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
-            // panelTests
+            // button2
             // 
-            panelTests.BorderStyle = BorderStyle.FixedSingle;
-            panelTests.Location = new Point(20, 230);
-            panelTests.Name = "panelTests";
-            panelTests.Size = new Size(760, 150);
-            panelTests.TabIndex = 3;
+            button2.Location = new Point(248, 86);
+            button2.Name = "button2";
+            button2.Size = new Size(200, 200);
+            button2.TabIndex = 3;
+            button2.Text = "Test";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
-            // panelQuestionnaires
+            // button3
             // 
-            panelQuestionnaires.BorderStyle = BorderStyle.FixedSingle;
-            panelQuestionnaires.Location = new Point(20, 390);
-            panelQuestionnaires.Name = "panelQuestionnaires";
-            panelQuestionnaires.Size = new Size(760, 150);
-            panelQuestionnaires.TabIndex = 4;
+            button3.Location = new Point(475, 86);
+            button3.Name = "button3";
+            button3.Size = new Size(200, 200);
+            button3.TabIndex = 4;
+            button3.Text = "Questionnaire";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // Course
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(800, 600);
-            Controls.Add(panelQuestionnaires);
-            Controls.Add(panelTests);
-            Controls.Add(panelFiles);
+            ClientSize = new Size(715, 321);
+            Controls.Add(button3);
+            Controls.Add(button2);
+            Controls.Add(button1);
             Controls.Add(buttonBack);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -81,5 +84,9 @@
             Text = "Course";
             ResumeLayout(false);
         }
+
+        private Button button1;
+        private Button button2;
+        private Button button3;
     }
 }
