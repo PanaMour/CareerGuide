@@ -32,6 +32,11 @@ namespace CareerGuide
             StudentInformation.SelectedChapter = 2;
             new Question().ShowDialog();
         }
+        private void button3_Click(object sender, EventArgs e)
+        {
+            StudentInformation.SelectedChapter = 3;
+            new Question().ShowDialog();
+        }
 
         private void buttonBack_Click(object sender, EventArgs e)
         {
@@ -69,6 +74,9 @@ namespace CareerGuide
                                 case 2:
                                     button2.Text = chapterName;
                                     break;
+                                case 3:
+                                    button3.Text = chapterName;
+                                    break;
                             }
                         }
                     }
@@ -78,5 +86,6 @@ namespace CareerGuide
             }
         }
 
+        
     }
 }

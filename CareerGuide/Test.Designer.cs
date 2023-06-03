@@ -24,6 +24,7 @@
             button1 = new Button();
             button2 = new Button();
             buttonBack = new Button();
+            button3 = new Button();
             SuspendLayout();
             // 
             // button1
@@ -61,11 +62,23 @@
             buttonBack.UseVisualStyleBackColor = false;
             buttonBack.Click += buttonBack_Click;
             // 
+            // button3
+            // 
+            button3.Location = new Point(117, 196);
+            button3.Margin = new Padding(4, 3, 4, 3);
+            button3.Name = "button3";
+            button3.Size = new Size(117, 58);
+            button3.TabIndex = 3;
+            button3.Text = "Chapter 3";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
             // Test
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(350, 231);
+            ClientSize = new Size(350, 286);
+            Controls.Add(button3);
             Controls.Add(buttonBack);
             Controls.Add(button1);
             Controls.Add(button2);
@@ -82,5 +95,6 @@
         #endregion
 
         private Button buttonBack;
+        private Button button3;
     }
 }

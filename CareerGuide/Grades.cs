@@ -47,7 +47,10 @@ namespace CareerGuide
                 c.id AS 'Course ID', 
                 c.course_name AS 'Course Name', 
                 c.semester AS 'Semester',
-                g.grade AS 'Grade'
+                g.grade AS 'Grade',
+                g.grade1 AS 'Test 1',
+                g.grade2 AS 'Test 2',
+                g.grade_final AS 'Final Test'
             FROM 
                 grade AS g
             JOIN 
@@ -73,6 +76,7 @@ namespace CareerGuide
             }
         }
 
+
         private void labelSemester_Click(object sender, EventArgs e)
         {
 
@@ -89,23 +93,26 @@ namespace CareerGuide
                 conn.Open();
 
                 string query = @"
-            SELECT 
-                c.id AS 'Course ID', 
-                c.course_name AS 'Course Name', 
-                c.semester AS 'Semester',
-                g.grade AS 'Grade'
-            FROM 
-                grade AS g
-            JOIN 
-                course AS c ON g.course_id = c.id 
-            WHERE 
-                g.student_id = @studentId AND c.semester = @semester";
+        SELECT 
+            c.id AS 'Course ID', 
+            c.course_name AS 'Course Name', 
+            c.semester AS 'Semester',
+            g.grade AS 'Grade',
+            g.grade1 AS 'Test 1',
+            g.grade2 AS 'Test 2',
+            g.grade_final AS 'Final Test'
+        FROM 
+            grade AS g
+        JOIN 
+            course AS c ON g.course_id = c.id 
+        WHERE 
+            g.student_id = @studentId AND c.semester = @semester";
 
                 using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@studentId", StudentInformation.StudentId);
                     cmd.Parameters.AddWithValue("@semester", semester);
-
+                    
                     using (SQLiteDataAdapter adapter = new SQLiteDataAdapter(cmd))
                     {
                         DataTable dt = new DataTable();
@@ -118,8 +125,5 @@ namespace CareerGuide
                 conn.Close();
             }
         }
-
-
-
     }
 }
