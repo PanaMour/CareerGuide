@@ -14,24 +14,11 @@ namespace CareerGuide
 {
     public partial class Home : Form
     {
-        string username = "";
-        int id = 0;
-        int courseId1 = 0;
-        int courseId2 = 0;
-        int courseId3 = 0;
-        int courseId4 = 0;
         public Home()
         {
             InitializeComponent();
-        }
-
-        public Home(string arg, int arg2)
-        {
-            InitializeComponent();
             comboBox1.Text = "Semester 1";
-            label2.Text = arg;
-            username = arg;
-            id = arg2;
+            label2.Text = StudentInformation.StudentName;
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -41,36 +28,40 @@ namespace CareerGuide
 
         private void button1_Click(object sender, EventArgs e)
         {
+            StudentInformation.CourseId = StudentInformation.CourseId1;
             this.Hide();
-            new Course(username, id, courseId1).ShowDialog();
+            new Course().ShowDialog();
             this.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            StudentInformation.CourseId = StudentInformation.CourseId2;
             this.Hide();
-            new Course(username, id, courseId2).ShowDialog();
+            new Course().ShowDialog();
             this.Close();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
+            StudentInformation.CourseId = StudentInformation.CourseId3;
             this.Hide();
-            new Course(username, id, courseId3).ShowDialog();
+            new Course().ShowDialog();
             this.Close();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
+            StudentInformation.CourseId = StudentInformation.CourseId4;
             this.Hide();
-            new Course(username, id, courseId4).ShowDialog();
+            new Course().ShowDialog();
             this.Close();
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new Grades(username, id).ShowDialog();
+            new Grades().ShowDialog();
             this.Close();
         }
 
@@ -107,19 +98,19 @@ namespace CareerGuide
                             {
                                 case 1:
                                     button1.Text = courseName;
-                                    courseId1 = courseId;
+                                    StudentInformation.CourseId1 = courseId;
                                     break;
                                 case 2:
                                     button2.Text = courseName;
-                                    courseId2 = courseId;
+                                    StudentInformation.CourseId2 = courseId;
                                     break;
                                 case 3:
                                     button3.Text = courseName;
-                                    courseId3 = courseId;
+                                    StudentInformation.CourseId3 = courseId;
                                     break;
                                 case 4:
                                     button4.Text = courseName;
-                                    courseId4 = courseId;
+                                    StudentInformation.CourseId4 = courseId;
                                     break;
                             }
 
@@ -135,21 +126,15 @@ namespace CareerGuide
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Get the selected semester
+            // Convert the selected semester to an integer.
             int semester = Convert.ToInt32(comboBox1.SelectedItem.ToString().Split(' ')[1]);
-
-            // Clear the text of all buttons first
-            button1.Text = "";
-            button2.Text = "";
-            button3.Text = "";
-            button4.Text = "";
 
             string connectionString = ConfigurationManager.ConnectionStrings["CareerGuide"].ConnectionString;
             using (SQLiteConnection conn = new SQLiteConnection(connectionString))
             {
                 conn.Open();
 
-                string query = "SELECT course_name FROM course WHERE semester = @semester";
+                string query = "SELECT id, course_name FROM course WHERE semester = @semester";
                 using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@semester", semester);
@@ -159,23 +144,28 @@ namespace CareerGuide
                         int i = 1;
                         while (reader.Read() && i <= 4)
                         {
-                            // Get the course name
-                            string courseName = reader.GetString(0);
+                            // Get the course name and ID
+                            string courseName = reader.GetString(1);
+                            int courseId = reader.GetInt32(0);
 
-                            // Assign the course name to a button
+                            // Assign the course name to a button and the course ID to the courseId variable
                             switch (i)
                             {
                                 case 1:
                                     button1.Text = courseName;
+                                    StudentInformation.CourseId1 = courseId;
                                     break;
                                 case 2:
                                     button2.Text = courseName;
+                                    StudentInformation.CourseId2 = courseId;
                                     break;
                                 case 3:
                                     button3.Text = courseName;
+                                    StudentInformation.CourseId3 = courseId;
                                     break;
                                 case 4:
                                     button4.Text = courseName;
+                                    StudentInformation.CourseId4 = courseId;
                                     break;
                             }
 
@@ -187,6 +177,7 @@ namespace CareerGuide
                 conn.Close();
             }
         }
+
 
     }
 }

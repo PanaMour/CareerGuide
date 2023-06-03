@@ -9,30 +9,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace CareerGuide
 {
     public partial class Grades : Form
     {
-        String username = "";
-        int id = 0;
         public Grades()
         {
             InitializeComponent();
-        }
-        public Grades(string arg, int arg2)
-        {
-            InitializeComponent();
             comboBox1.Text = "Semester 1";
-            username = arg;
-            id = arg2;
-            labelStudentName.Text = "Student: " + username;
+            labelStudentName.Text = "Student: " + StudentInformation.StudentName;
         }
 
         private void backButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new Home(username, id).ShowDialog();
+            new Home().ShowDialog();
             this.Close();
         }
 
@@ -64,7 +57,7 @@ namespace CareerGuide
 
                 using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@studentId", id);
+                    cmd.Parameters.AddWithValue("@studentId", StudentInformation.StudentId);
                     cmd.Parameters.AddWithValue("@semester", 1);
 
                     using (SQLiteDataAdapter adapter = new SQLiteDataAdapter(cmd))
@@ -110,7 +103,7 @@ namespace CareerGuide
 
                 using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@studentId", id);
+                    cmd.Parameters.AddWithValue("@studentId", StudentInformation.StudentId);
                     cmd.Parameters.AddWithValue("@semester", semester);
 
                     using (SQLiteDataAdapter adapter = new SQLiteDataAdapter(cmd))

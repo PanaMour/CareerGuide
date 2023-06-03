@@ -9,7 +9,6 @@ namespace CareerGuide
 {
     public partial class Content : Form
     {
-        int courseId = 0;
         // List of PDF file paths
         private List<string> GetPdfFiles(int courseId)
         {
@@ -48,14 +47,9 @@ namespace CareerGuide
         {
             InitializeComponent();
         }
-        public Content(int arg1)
-        {
-            InitializeComponent();
-            courseId = arg1;
-        }
         private void Content_Load(object sender, EventArgs e)
         {
-            LoadPdf(GetPdfFiles(courseId)[currentIndex]);
+            LoadPdf(GetPdfFiles(StudentInformation.CourseId)[currentIndex]);
         }
 
         private void LoadPdf(string path)
@@ -74,14 +68,14 @@ namespace CareerGuide
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            currentIndex = (currentIndex + 1) % GetPdfFiles(courseId).Count;  // Cycle to the start when reaching the end
-            LoadPdf(GetPdfFiles(courseId)[currentIndex]);
+            currentIndex = (currentIndex + 1) % GetPdfFiles(StudentInformation.CourseId).Count;  // Cycle to the start when reaching the end
+            LoadPdf(GetPdfFiles(StudentInformation.CourseId)[currentIndex]);
         }
 
         private void btnPrev_Click(object sender, EventArgs e)
         {
-            currentIndex = (currentIndex - 1 + GetPdfFiles(courseId).Count) % GetPdfFiles(courseId).Count;  // Cycle to the end when reaching the start
-            LoadPdf(GetPdfFiles(courseId)[currentIndex]);
+            currentIndex = (currentIndex - 1 + GetPdfFiles(StudentInformation.CourseId).Count) % GetPdfFiles(StudentInformation.CourseId).Count;  // Cycle to the end when reaching the start
+            LoadPdf(GetPdfFiles(StudentInformation.CourseId)[currentIndex]);
         }
     }
 }

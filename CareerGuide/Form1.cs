@@ -42,8 +42,10 @@ namespace CareerGuide
                     if (result != null)
                     {
                         int userId = Convert.ToInt32(result);
+                        StudentInformation.StudentId = userId;
+                        StudentInformation.StudentName = username;
                         this.Hide();
-                        new Home(username, userId).ShowDialog();
+                        new Home().ShowDialog();
                         this.Close();
                     }
                     else
