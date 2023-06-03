@@ -52,7 +52,37 @@ namespace CareerGuide
             {
                 conn.Open();
 
-                string query = "SELECT chapter, chapter_name FROM test WHERE course_id = @courseId";
+                // Retrieve grades from the database
+                string query = "SELECT grade1, grade2, grade_final FROM grade WHERE student_id = @studentId AND course_id = @courseId";
+                using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@studentId", StudentInformation.StudentId);
+                    cmd.Parameters.AddWithValue("@courseId", StudentInformation.CourseId);
+
+                    using (SQLiteDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            // Check the values of grade1, grade2, and grade_final
+                            bool grade1Exists = !reader.IsDBNull(0);
+                            bool grade2Exists = !reader.IsDBNull(1);
+                            bool gradeFinalExists = !reader.IsDBNull(2);
+
+                            // Enable/disable buttons based on grades
+                            if (grade1Exists)
+                                EnableChapter2Button();
+
+                            if (grade2Exists)
+                                EnableChapter3Button();
+
+                            if (gradeFinalExists)
+                                DisableChapter3Button();
+                        }
+                    }
+                }
+
+                // Retrieve chapter information from the test table
+                query = "SELECT chapter, chapter_name FROM test WHERE course_id = @courseId";
                 using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@courseId", StudentInformation.CourseId);
@@ -86,6 +116,19 @@ namespace CareerGuide
             }
         }
 
-        
+        public void EnableChapter2Button()
+        {
+            button2.Enabled = true;
+            button1.Enabled = false;
+        }
+        public void EnableChapter3Button()
+        {
+            button3.Enabled = true;
+            button2.Enabled = false;
+        }
+        public void DisableChapter3Button()
+        {
+            button3.Enabled = false;
+        }
     }
 }

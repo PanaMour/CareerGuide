@@ -24,7 +24,7 @@ namespace CareerGuide
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
                 connection.Open();
-                string sql = "SELECT question, choice_a, choice_b, choice_c, grade FROM question WHERE test_id IN " +
+                string sql = "SELECT question, choice_a, choice_b, choice_c, answer, grade FROM question WHERE test_id IN " +
                     "(SELECT id FROM test WHERE course_id = @courseId AND chapter = @chapter)";
                 using (SQLiteCommand command = new SQLiteCommand(sql, connection))
                 {
@@ -39,9 +39,10 @@ namespace CareerGuide
                             string choiceA = reader.GetString(1);
                             string choiceB = reader.GetString(2);
                             string choiceC = reader.GetString(3);
-                            int grade = reader.GetInt32(4);
+                            string answer = reader.GetString(4);
+                            int grade = reader.GetInt32(5);
 
-                            QuestionData questionData = new QuestionData(question, choiceA, choiceB, choiceC, grade);
+                            QuestionData questionData = new QuestionData(question, choiceA, choiceB, choiceC, answer, grade);
                             questionDataList.Add(questionData);
                             totalGrade += grade;
                         }
@@ -74,20 +75,21 @@ namespace CareerGuide
                 choiceCRadioButton.Checked = false;
             }
         }
+
         private void submitButton_Click(object sender, EventArgs e)
         {
             // Check the selected answer
-            int selectedChoice = -1;
+            string selectedChoice = null;
 
             if (choiceARadioButton.Checked)
-                selectedChoice = 0;
+                selectedChoice = "A";
             else if (choiceBRadioButton.Checked)
-                selectedChoice = 1;
+                selectedChoice = "B";
             else if (choiceCRadioButton.Checked)
-                selectedChoice = 2;
+                selectedChoice = "C";
 
             // Check if the selected answer is correct
-            if (selectedChoice == questionDataList[currentQuestionIndex].CorrectChoice)
+            if (questionDataList[currentQuestionIndex].IsAnswerCorrect(selectedChoice))
                 score += questionDataList[currentQuestionIndex].Grade;
 
             // Move to the next question or finish the quiz
@@ -159,16 +161,31 @@ namespace CareerGuide
                         {
                             command.CommandText = "UPDATE grade SET grade1 = @grade WHERE student_id = @studentId AND course_id = @courseId";
                             command.Parameters.AddWithValue("@grade", grade1);
+                            Test testForm = Application.OpenForms.OfType<Test>().FirstOrDefault();
+                            if (testForm != null)
+                            {
+                                testForm.EnableChapter2Button();
+                            }
                         }
                         else if (StudentInformation.SelectedChapter == 2)
                         {
                             command.CommandText = "UPDATE grade SET grade2 = @grade WHERE student_id = @studentId AND course_id = @courseId";
                             command.Parameters.AddWithValue("@grade", grade2);
+                            Test testForm = Application.OpenForms.OfType<Test>().FirstOrDefault();
+                            if (testForm != null)
+                            {
+                                testForm.EnableChapter3Button();
+                            }
                         }
                         else if (StudentInformation.SelectedChapter == 3)
                         {
                             command.CommandText = "UPDATE grade SET grade_final = @grade WHERE student_id = @studentId AND course_id = @courseId";
                             command.Parameters.AddWithValue("@grade", gradeFinal);
+                            Test testForm = Application.OpenForms.OfType<Test>().FirstOrDefault();
+                            if (testForm != null)
+                            {
+                                testForm.DisableChapter3Button();
+                            }
                         }
 
                         command.Parameters.AddWithValue("@studentId", StudentInformation.StudentId);
@@ -187,6 +204,7 @@ namespace CareerGuide
             }
         }
 
+
         // Helper class for representing question data
         public class QuestionData
         {
@@ -194,18 +212,24 @@ namespace CareerGuide
             public string ChoiceA { get; set; }
             public string ChoiceB { get; set; }
             public string ChoiceC { get; set; }
-            public int CorrectChoice { get; set; }
+            public string Answer { get; set; }
             public int Grade { get; set; }
 
-            public QuestionData(string question, string choiceA, string choiceB, string choiceC, int grade)
+            public QuestionData(string question, string choiceA, string choiceB, string choiceC, string answer, int grade)
             {
                 Question = question;
                 ChoiceA = choiceA;
                 ChoiceB = choiceB;
                 ChoiceC = choiceC;
-                CorrectChoice = 0; // Set the correct choice index here (0 for choice A, 1 for choice B, etc.)
+                Answer = answer;
                 Grade = grade;
             }
+
+            public bool IsAnswerCorrect(string selectedChoice)
+            {
+                return Answer.Equals(selectedChoice, StringComparison.OrdinalIgnoreCase);
+            }
         }
+
     }
 }

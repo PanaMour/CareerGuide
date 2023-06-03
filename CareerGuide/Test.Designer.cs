@@ -40,6 +40,7 @@
             // 
             // button2
             // 
+            button2.Enabled = false;
             button2.Location = new Point(117, 127);
             button2.Margin = new Padding(4, 3, 4, 3);
             button2.Name = "button2";
@@ -64,6 +65,7 @@
             // 
             // button3
             // 
+            button3.Enabled = false;
             button3.Location = new Point(117, 196);
             button3.Margin = new Padding(4, 3, 4, 3);
             button3.Name = "button3";
