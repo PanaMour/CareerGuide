@@ -7,4 +7,5 @@
     public static int CourseId2 { get; set; }
     public static int CourseId3 { get; set; }
     public static int CourseId4 { get; set; }
+    public static int SelectedChapter { get; set; }
 }

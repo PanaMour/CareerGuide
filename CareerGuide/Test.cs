@@ -23,12 +23,14 @@ namespace CareerGuide
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            StudentInformation.SelectedChapter = 1;
+            new Question().ShowDialog();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            StudentInformation.SelectedChapter = 2;
+            new Question().ShowDialog();
         }
 
         private void buttonBack_Click(object sender, EventArgs e)
