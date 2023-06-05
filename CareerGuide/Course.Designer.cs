@@ -21,6 +21,12 @@
             button1 = new Button();
             button2 = new Button();
             button3 = new Button();
+            pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
+            pictureBox3 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // buttonBack
@@ -38,9 +44,10 @@
             // 
             // button1
             // 
-            button1.Location = new Point(20, 86);
+            button1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            button1.Location = new Point(32, 247);
             button1.Name = "button1";
-            button1.Size = new Size(200, 200);
+            button1.Size = new Size(171, 49);
             button1.TabIndex = 2;
             button1.Text = "Content";
             button1.UseVisualStyleBackColor = true;
@@ -48,9 +55,10 @@
             // 
             // button2
             // 
-            button2.Location = new Point(248, 86);
+            button2.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            button2.Location = new Point(248, 247);
             button2.Name = "button2";
-            button2.Size = new Size(200, 200);
+            button2.Size = new Size(171, 49);
             button2.TabIndex = 3;
             button2.Text = "Test";
             button2.UseVisualStyleBackColor = true;
@@ -58,20 +66,54 @@
             // 
             // button3
             // 
-            button3.Location = new Point(475, 86);
+            button3.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            button3.Location = new Point(464, 247);
             button3.Name = "button3";
-            button3.Size = new Size(200, 200);
+            button3.Size = new Size(171, 49);
             button3.TabIndex = 4;
             button3.Text = "Questionnaire";
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.content2;
+            pictureBox1.Location = new Point(32, 70);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(171, 161);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 5;
+            pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = Properties.Resources.test1;
+            pictureBox2.Location = new Point(248, 70);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(171, 161);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 6;
+            pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = Properties.Resources.questionnaire1;
+            pictureBox3.Location = new Point(464, 70);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(171, 161);
+            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox3.TabIndex = 7;
+            pictureBox3.TabStop = false;
+            // 
             // Course
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
-            ClientSize = new Size(715, 321);
+            BackColor = Color.AntiqueWhite;
+            ClientSize = new Size(661, 321);
+            Controls.Add(pictureBox3);
+            Controls.Add(pictureBox2);
+            Controls.Add(pictureBox1);
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
@@ -82,11 +124,17 @@
             Name = "Course";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Course";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
         }
 
         private Button button1;
         private Button button2;
         private Button button3;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox3;
     }
 }

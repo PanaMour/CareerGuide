@@ -31,7 +31,7 @@
             labelStudentName.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Point);
             labelStudentName.Location = new Point(50, 61);
             labelStudentName.Name = "labelStudentName";
-            labelStudentName.Size = new Size(710, 40);
+            labelStudentName.Size = new Size(227, 37);
             labelStudentName.TabIndex = 1;
             labelStudentName.Text = "Student: (Name)";
             // 
@@ -44,7 +44,7 @@
             dataGridViewGrades.Location = new Point(20, 171);
             dataGridViewGrades.Name = "dataGridViewGrades";
             dataGridViewGrades.ReadOnly = true;
-            dataGridViewGrades.Size = new Size(760, 400);
+            dataGridViewGrades.Size = new Size(662, 110);
             dataGridViewGrades.TabIndex = 3;
             dataGridViewGrades.CellContentClick += dataGridViewGrades_CellContentClick;
             // 
@@ -79,7 +79,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(800, 600);
+            ClientSize = new Size(698, 311);
             Controls.Add(comboBox1);
             Controls.Add(dataGridViewGrades);
             Controls.Add(labelStudentName);
