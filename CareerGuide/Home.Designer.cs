@@ -38,6 +38,7 @@
             button4 = new Button();
             button7 = new Button();
             button8 = new Button();
+            button5 = new Button();
             SuspendLayout();
             // 
             // label1
@@ -161,12 +162,27 @@
             button8.UseVisualStyleBackColor = true;
             button8.Click += button8_Click;
             // 
+            // button5
+            // 
+            button5.BackColor = Color.LightSteelBlue;
+            button5.Cursor = Cursors.Hand;
+            button5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            button5.Location = new Point(25, 405);
+            button5.Margin = new Padding(4);
+            button5.Name = "button5";
+            button5.Size = new Size(211, 95);
+            button5.TabIndex = 7;
+            button5.Text = "Career Guide";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
+            // 
             // Home
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(815, 643);
+            Controls.Add(button5);
             Controls.Add(button8);
             Controls.Add(button7);
             Controls.Add(button4);
@@ -201,5 +217,6 @@
         private Button button4;
         private Button button7;
         private Button button8;
+        private Button button5;
     }
 }

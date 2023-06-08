@@ -111,21 +111,20 @@ namespace CareerGuide
                 conn.Open();
 
                 string query = @"
-        SELECT 
-            c.id AS 'Course ID', 
-            c.course_name AS 'Course Name', 
-            c.semester AS 'Semester',
-            g.grade AS 'Grade',
-            g.grade1 AS 'Test 1',
-            g.grade2 AS 'Test 2',
-            g.grade_final AS 'Final Test',
-            g.viewed AS 'Viewed'
-        FROM 
-            grade AS g
-        JOIN 
-            course AS c ON g.course_id = c.id 
-        WHERE 
-            g.student_id = @studentId AND c.semester = @semester";
+            SELECT 
+                c.id AS 'Course ID', 
+                c.course_name AS 'Course Name', 
+                c.semester AS 'Semester',
+                g.grade AS 'Grade',
+                g.grade1 AS 'Test 1',
+                g.grade2 AS 'Test 2',
+                g.grade_final AS 'Final Test'
+            FROM 
+                grade AS g
+            JOIN 
+                course AS c ON g.course_id = c.id 
+            WHERE 
+                g.student_id = @studentId AND c.semester = @semester";
 
                 using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
                 {
@@ -160,6 +159,7 @@ namespace CareerGuide
                 conn.Close();
             }
         }
+
 
 
     }
