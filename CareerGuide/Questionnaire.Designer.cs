@@ -61,6 +61,16 @@ namespace CareerGuide
             radioButton22 = new RadioButton();
             radioButton21 = new RadioButton();
             buttonBack = new Button();
+            label6 = new Label();
+            label7 = new Label();
+            label8 = new Label();
+            label9 = new Label();
+            label10 = new Label();
+            label11 = new Label();
+            label12 = new Label();
+            label13 = new Label();
+            label14 = new Label();
+            label15 = new Label();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -70,7 +80,7 @@ namespace CareerGuide
             // 
             // submitButton
             // 
-            submitButton.Location = new Point(125, 468);
+            submitButton.Location = new Point(185, 467);
             submitButton.Name = "submitButton";
             submitButton.Size = new Size(75, 23);
             submitButton.TabIndex = 0;
@@ -81,7 +91,7 @@ namespace CareerGuide
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 61);
+            label1.Location = new Point(85, 72);
             label1.Name = "label1";
             label1.Size = new Size(298, 15);
             label1.TabIndex = 1;
@@ -94,7 +104,7 @@ namespace CareerGuide
             groupBox1.Controls.Add(radioButton3);
             groupBox1.Controls.Add(radioButton2);
             groupBox1.Controls.Add(radioButton1);
-            groupBox1.Location = new Point(22, 91);
+            groupBox1.Location = new Point(85, 90);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(300, 40);
             groupBox1.TabIndex = 2;
@@ -158,11 +168,11 @@ namespace CareerGuide
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(12, 141);
+            label2.Location = new Point(58, 152);
             label2.Name = "label2";
-            label2.Size = new Size(290, 15);
+            label2.Size = new Size(363, 15);
             label2.TabIndex = 3;
-            label2.Text = "How would you rate the difficulty level of this course?";
+            label2.Text = "On a scale of 1-5, how challenging did you find the course content?";
             // 
             // groupBox2
             // 
@@ -171,7 +181,7 @@ namespace CareerGuide
             groupBox2.Controls.Add(radioButton8);
             groupBox2.Controls.Add(radioButton7);
             groupBox2.Controls.Add(radioButton6);
-            groupBox2.Location = new Point(22, 171);
+            groupBox2.Location = new Point(85, 170);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(300, 40);
             groupBox2.TabIndex = 4;
@@ -235,11 +245,11 @@ namespace CareerGuide
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(12, 221);
+            label3.Location = new Point(37, 232);
             label3.Name = "label3";
-            label3.Size = new Size(253, 15);
+            label3.Size = new Size(417, 15);
             label3.TabIndex = 5;
-            label3.Text = "How satisfied are you with the course content?";
+            label3.Text = "Do you feel this course has enhanced your understanding of this subject area?";
             // 
             // groupBox3
             // 
@@ -248,7 +258,7 @@ namespace CareerGuide
             groupBox3.Controls.Add(radioButton13);
             groupBox3.Controls.Add(radioButton12);
             groupBox3.Controls.Add(radioButton11);
-            groupBox3.Location = new Point(22, 251);
+            groupBox3.Location = new Point(85, 250);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(300, 40);
             groupBox3.TabIndex = 6;
@@ -312,11 +322,11 @@ namespace CareerGuide
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(12, 301);
+            label4.Location = new Point(37, 312);
             label4.Name = "label4";
-            label4.Size = new Size(215, 15);
+            label4.Size = new Size(411, 15);
             label4.TabIndex = 7;
-            label4.Text = "Did the course meet your expectations?";
+            label4.Text = "On a scale of 1-5, how likely are you to take an advanced level of this course?";
             // 
             // groupBox4
             // 
@@ -325,7 +335,7 @@ namespace CareerGuide
             groupBox4.Controls.Add(radioButton18);
             groupBox4.Controls.Add(radioButton17);
             groupBox4.Controls.Add(radioButton16);
-            groupBox4.Location = new Point(22, 331);
+            groupBox4.Location = new Point(85, 330);
             groupBox4.Name = "groupBox4";
             groupBox4.Size = new Size(300, 40);
             groupBox4.TabIndex = 8;
@@ -389,11 +399,11 @@ namespace CareerGuide
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(12, 381);
+            label5.Location = new Point(99, 392);
             label5.Name = "label5";
-            label5.Size = new Size(248, 15);
+            label5.Size = new Size(267, 15);
             label5.TabIndex = 9;
-            label5.Text = "Would you recommend this course to others?";
+            label5.Text = "Is the course relevant to your desired career path?";
             // 
             // groupBox5
             // 
@@ -402,7 +412,7 @@ namespace CareerGuide
             groupBox5.Controls.Add(radioButton23);
             groupBox5.Controls.Add(radioButton22);
             groupBox5.Controls.Add(radioButton21);
-            groupBox5.Location = new Point(22, 411);
+            groupBox5.Location = new Point(85, 410);
             groupBox5.Name = "groupBox5";
             groupBox5.Size = new Size(300, 40);
             groupBox5.TabIndex = 10;
@@ -476,11 +486,121 @@ namespace CareerGuide
             buttonBack.UseVisualStyleBackColor = false;
             buttonBack.Click += backButton_Click;
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label6.Location = new Point(24, 105);
+            label6.Name = "label6";
+            label6.Size = new Size(57, 15);
+            label6.TabIndex = 12;
+            label6.Text = "Not at all";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label7.Location = new Point(391, 105);
+            label7.Name = "label7";
+            label7.Size = new Size(66, 15);
+            label7.TabIndex = 13;
+            label7.Text = "Very much";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label8.Location = new Point(24, 187);
+            label8.Name = "label8";
+            label8.Size = new Size(53, 15);
+            label8.TabIndex = 14;
+            label8.Text = "Difficult";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label9.Location = new Point(391, 189);
+            label9.Name = "label9";
+            label9.Size = new Size(30, 15);
+            label9.TabIndex = 15;
+            label9.Text = "Easy";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label10.Location = new Point(18, 267);
+            label10.Name = "label10";
+            label10.Size = new Size(57, 15);
+            label10.TabIndex = 16;
+            label10.Text = "Not at all";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label11.Location = new Point(391, 267);
+            label11.Name = "label11";
+            label11.Size = new Size(66, 15);
+            label11.TabIndex = 17;
+            label11.Text = "Very much";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label12.Location = new Point(22, 345);
+            label12.Name = "label12";
+            label12.Size = new Size(60, 15);
+            label12.TabIndex = 18;
+            label12.Text = "Not likely";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label13.Location = new Point(391, 347);
+            label13.Name = "label13";
+            label13.Size = new Size(64, 15);
+            label13.TabIndex = 19;
+            label13.Text = "Very likely";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label14.Location = new Point(18, 427);
+            label14.Name = "label14";
+            label14.Size = new Size(57, 15);
+            label14.TabIndex = 20;
+            label14.Text = "Not at all";
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label15.Location = new Point(391, 427);
+            label15.Name = "label15";
+            label15.Size = new Size(66, 15);
+            label15.TabIndex = 21;
+            label15.Text = "Very much";
+            // 
             // Questionnaire
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(340, 502);
+            ClientSize = new Size(485, 502);
+            Controls.Add(label15);
+            Controls.Add(label14);
+            Controls.Add(label13);
+            Controls.Add(label12);
+            Controls.Add(label11);
+            Controls.Add(label10);
+            Controls.Add(label9);
+            Controls.Add(label8);
+            Controls.Add(label7);
+            Controls.Add(label6);
             Controls.Add(buttonBack);
             Controls.Add(groupBox5);
             Controls.Add(label5);
@@ -514,5 +634,15 @@ namespace CareerGuide
         }
 
         private Button buttonBack;
+        private Label label6;
+        private Label label7;
+        private Label label8;
+        private Label label9;
+        private Label label10;
+        private Label label11;
+        private Label label12;
+        private Label label13;
+        private Label label14;
+        private Label label15;
     }
 }
