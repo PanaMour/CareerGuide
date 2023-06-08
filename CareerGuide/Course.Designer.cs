@@ -32,7 +32,7 @@
             // buttonBack
             // 
             buttonBack.BackColor = Color.FromArgb(66, 139, 202);
-            buttonBack.FlatStyle = FlatStyle.Flat;
+            buttonBack.FlatStyle = FlatStyle.Popup;
             buttonBack.ForeColor = Color.White;
             buttonBack.Location = new Point(20, 20);
             buttonBack.Name = "buttonBack";
@@ -123,7 +123,7 @@
             MaximizeBox = false;
             Name = "Course";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Course";
+            Text = "s";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();

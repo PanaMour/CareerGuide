@@ -63,7 +63,9 @@ namespace CareerGuide
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            new Questionnaire().ShowDialog();
+            this.Close();
         }
     }
 }
