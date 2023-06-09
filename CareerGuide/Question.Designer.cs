@@ -81,6 +81,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.SeaShell;
             ClientSize = new Size(504, 211);
             Controls.Add(submitButton);
             Controls.Add(choiceCRadioButton);

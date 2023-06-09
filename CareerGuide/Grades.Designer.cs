@@ -78,7 +78,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
+            BackColor = Color.AntiqueWhite;
             ClientSize = new Size(698, 311);
             Controls.Add(comboBox1);
             Controls.Add(dataGridViewGrades);

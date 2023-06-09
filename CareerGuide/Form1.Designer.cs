@@ -58,7 +58,7 @@
             // 
             // loginButton
             // 
-            loginButton.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            loginButton.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             loginButton.Location = new Point(150, 170);
             loginButton.Name = "loginButton";
             loginButton.Size = new Size(80, 30);
@@ -71,7 +71,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
+            BackColor = Color.AntiqueWhite;
             ClientSize = new Size(380, 248);
             Controls.Add(loginButton);
             Controls.Add(passwordTextBox);

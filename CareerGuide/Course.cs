@@ -17,6 +17,7 @@ namespace CareerGuide
         public Course()
         {
             InitializeComponent();
+            Questionnaire_Enable(null, null);
         }
 
         private void Course_Load(object sender, EventArgs e)
@@ -30,6 +31,36 @@ namespace CareerGuide
             new Home().ShowDialog();
             this.Close();
         }
+        private void Questionnaire_Enable(object sender, EventArgs e)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["CareerGuide"].ConnectionString;
+            using (SQLiteConnection conn = new SQLiteConnection(connectionString))
+            {
+                conn.Open();
+
+                // Retrieve grades from the database
+                string query = "SELECT grade_final FROM grade WHERE student_id = @studentId AND course_id = @courseId";
+                using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@studentId", StudentInformation.StudentId);
+                    cmd.Parameters.AddWithValue("@courseId", StudentInformation.CourseId);
+
+                    using (SQLiteDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            bool gradeFinalExists = !reader.IsDBNull(0); // Check if the value is null for column index 0
+
+                            if (gradeFinalExists)
+                                enableQuestionnaire();
+                        }
+                    }
+                }
+
+                conn.Close();
+            }
+        }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -66,6 +97,11 @@ namespace CareerGuide
             this.Hide();
             new Questionnaire().ShowDialog();
             this.Close();
+        }
+
+        private void enableQuestionnaire()
+        {
+            button3.Enabled = true;
         }
     }
 }

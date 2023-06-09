@@ -590,6 +590,7 @@ namespace CareerGuide
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.SeaShell;
             ClientSize = new Size(485, 502);
             Controls.Add(label15);
             Controls.Add(label14);

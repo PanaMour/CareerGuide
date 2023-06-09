@@ -71,7 +71,7 @@
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox1.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             comboBox1.Items.AddRange(new object[] { "Semester 1", "Semester 2", "Semester 3", "Semester 4", "Semester 5", "Semester 6" });
-            comboBox1.Location = new Point(303, 129);
+            comboBox1.Location = new Point(307, 131);
             comboBox1.Margin = new Padding(4);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(244, 45);
@@ -80,108 +80,108 @@
             // 
             // button1
             // 
-            button1.BackColor = Color.LightSteelBlue;
+            button1.BackColor = Color.White;
             button1.Cursor = Cursors.Hand;
             button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.Location = new Point(265, 220);
+            button1.Location = new Point(327, 208);
             button1.Margin = new Padding(4);
             button1.Name = "button1";
-            button1.Size = new Size(316, 95);
+            button1.Size = new Size(203, 64);
             button1.TabIndex = 4;
             button1.Text = "Course 1";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // button2
             // 
-            button2.BackColor = Color.LightSteelBlue;
+            button2.BackColor = Color.White;
             button2.Cursor = Cursors.Hand;
             button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.Location = new Point(265, 323);
+            button2.Location = new Point(327, 280);
             button2.Margin = new Padding(4);
             button2.Name = "button2";
-            button2.Size = new Size(316, 95);
+            button2.Size = new Size(203, 64);
             button2.TabIndex = 5;
             button2.Text = "Course 2";
-            button2.UseVisualStyleBackColor = true;
+            button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
             // button3
             // 
-            button3.BackColor = Color.LightSteelBlue;
+            button3.BackColor = Color.White;
             button3.Cursor = Cursors.Hand;
             button3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            button3.Location = new Point(265, 426);
+            button3.Location = new Point(327, 352);
             button3.Margin = new Padding(4);
             button3.Name = "button3";
-            button3.Size = new Size(316, 95);
+            button3.Size = new Size(203, 64);
             button3.TabIndex = 4;
             button3.Text = "Course 3";
-            button3.UseVisualStyleBackColor = true;
+            button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
             // 
             // button4
             // 
-            button4.BackColor = Color.LightSteelBlue;
+            button4.BackColor = Color.White;
             button4.Cursor = Cursors.Hand;
             button4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            button4.Location = new Point(265, 529);
+            button4.Location = new Point(327, 420);
             button4.Margin = new Padding(4);
             button4.Name = "button4";
-            button4.Size = new Size(316, 95);
+            button4.Size = new Size(203, 64);
             button4.TabIndex = 3;
             button4.Text = "Course 4";
-            button4.UseVisualStyleBackColor = true;
+            button4.UseVisualStyleBackColor = false;
             button4.Click += button4_Click;
             // 
             // button7
             // 
-            button7.BackColor = Color.LightSteelBlue;
+            button7.BackColor = Color.White;
             button7.Cursor = Cursors.Hand;
             button7.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            button7.Location = new Point(25, 268);
+            button7.Location = new Point(48, 208);
             button7.Margin = new Padding(4);
             button7.Name = "button7";
-            button7.Size = new Size(211, 95);
+            button7.Size = new Size(203, 64);
             button7.TabIndex = 0;
             button7.Text = "View Grades";
-            button7.UseVisualStyleBackColor = true;
+            button7.UseVisualStyleBackColor = false;
             button7.Click += button7_Click;
             // 
             // button8
             // 
-            button8.BackColor = Color.LightSteelBlue;
+            button8.BackColor = Color.White;
             button8.Cursor = Cursors.Hand;
             button8.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            button8.Location = new Point(687, 20);
+            button8.Location = new Point(94, 433);
             button8.Margin = new Padding(4);
             button8.Name = "button8";
             button8.Size = new Size(115, 38);
             button8.TabIndex = 6;
             button8.Text = "Sign Out";
-            button8.UseVisualStyleBackColor = true;
+            button8.UseVisualStyleBackColor = false;
             button8.Click += button8_Click;
             // 
             // button5
             // 
-            button5.BackColor = Color.LightSteelBlue;
+            button5.BackColor = Color.White;
             button5.Cursor = Cursors.Hand;
             button5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            button5.Location = new Point(25, 405);
+            button5.Location = new Point(48, 280);
             button5.Margin = new Padding(4);
             button5.Name = "button5";
-            button5.Size = new Size(211, 95);
+            button5.Size = new Size(203, 64);
             button5.TabIndex = 7;
             button5.Text = "Career Guide";
-            button5.UseVisualStyleBackColor = true;
+            button5.UseVisualStyleBackColor = false;
             button5.Click += button5_Click;
             // 
             // Home
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
-            ClientSize = new Size(815, 643);
+            BackColor = Color.AntiqueWhite;
+            ClientSize = new Size(611, 513);
             Controls.Add(button5);
             Controls.Add(button8);
             Controls.Add(button7);

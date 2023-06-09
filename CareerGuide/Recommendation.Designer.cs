@@ -11,7 +11,6 @@
         private Label labelDescription1;
         private Label labelDescription2;
         private Label labelRecommendedCareer;
-        private Label labelRelatedCourses;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -33,8 +32,8 @@
             labelDescription1 = new Label();
             labelDescription2 = new Label();
             labelRecommendedCareer = new Label();
-            labelRelatedCourses = new Label();
             buttonBack = new Button();
+            labelPostgraduateProgram = new Label();
             SuspendLayout();
             // 
             // labelTitle
@@ -43,7 +42,7 @@
             labelTitle.BackColor = Color.Transparent;
             labelTitle.Font = new Font("Arial", 24F, FontStyle.Bold, GraphicsUnit.Point);
             labelTitle.ForeColor = Color.FromArgb(64, 64, 64);
-            labelTitle.Location = new Point(119, 21);
+            labelTitle.Location = new Point(168, 19);
             labelTitle.Margin = new Padding(4, 0, 4, 0);
             labelTitle.Name = "labelTitle";
             labelTitle.Size = new Size(356, 37);
@@ -59,9 +58,9 @@
             labelDescription1.Location = new Point(23, 201);
             labelDescription1.Margin = new Padding(4, 0, 4, 0);
             labelDescription1.Name = "labelDescription1";
-            labelDescription1.Size = new Size(401, 22);
+            labelDescription1.Size = new Size(608, 22);
             labelDescription1.TabIndex = 1;
-            labelDescription1.Text = "Based on your performance on these courses:";
+            labelDescription1.Text = "Recommended postgraduate program based on performance analysis:";
             // 
             // labelDescription2
             // 
@@ -82,25 +81,12 @@
             labelRecommendedCareer.BackColor = Color.Transparent;
             labelRecommendedCareer.Font = new Font("Arial", 36F, FontStyle.Bold, GraphicsUnit.Point);
             labelRecommendedCareer.ForeColor = Color.FromArgb(0, 122, 204);
-            labelRecommendedCareer.Location = new Point(23, 128);
+            labelRecommendedCareer.Location = new Point(67, 124);
             labelRecommendedCareer.Margin = new Padding(4, 0, 4, 0);
             labelRecommendedCareer.Name = "labelRecommendedCareer";
-            labelRecommendedCareer.Size = new Size(447, 56);
+            labelRecommendedCareer.Size = new Size(523, 56);
             labelRecommendedCareer.TabIndex = 3;
-            labelRecommendedCareer.Text = "Software Engineer";
-            // 
-            // labelRelatedCourses
-            // 
-            labelRelatedCourses.AutoSize = true;
-            labelRelatedCourses.BackColor = Color.Transparent;
-            labelRelatedCourses.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            labelRelatedCourses.ForeColor = Color.FromArgb(64, 64, 64);
-            labelRelatedCourses.Location = new Point(24, 243);
-            labelRelatedCourses.Margin = new Padding(4, 0, 4, 0);
-            labelRelatedCourses.Name = "labelRelatedCourses";
-            labelRelatedCourses.Size = new Size(400, 18);
-            labelRelatedCourses.TabIndex = 4;
-            labelRelatedCourses.Text = "Introduction to Programming, Data Structures, Algorithms";
+            labelRecommendedCareer.Text = "Systems Programmer";
             // 
             // buttonBack
             // 
@@ -115,17 +101,31 @@
             buttonBack.UseVisualStyleBackColor = false;
             buttonBack.Click += backButton_Click;
             // 
+            // labelPostgraduateProgram
+            // 
+            labelPostgraduateProgram.AutoSize = true;
+            labelPostgraduateProgram.BackColor = Color.Transparent;
+            labelPostgraduateProgram.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labelPostgraduateProgram.ForeColor = Color.FromArgb(64, 64, 64);
+            labelPostgraduateProgram.Location = new Point(23, 240);
+            labelPostgraduateProgram.Margin = new Padding(4, 0, 4, 0);
+            labelPostgraduateProgram.Name = "labelPostgraduateProgram";
+            labelPostgraduateProgram.Size = new Size(567, 18);
+            labelPostgraduateProgram.TabIndex = 13;
+            labelPostgraduateProgram.Text = "Master's in Software Engineering with a focus on Software Engineering Practices";
+            // 
             // Recommendation
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(492, 316);
+            BackColor = SystemColors.Menu;
+            ClientSize = new Size(650, 281);
+            Controls.Add(labelPostgraduateProgram);
             Controls.Add(buttonBack);
             Controls.Add(labelTitle);
             Controls.Add(labelDescription1);
             Controls.Add(labelDescription2);
             Controls.Add(labelRecommendedCareer);
-            Controls.Add(labelRelatedCourses);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4, 3, 4, 3);
@@ -138,5 +138,6 @@
         }
 
         private Button buttonBack;
+        private Label labelPostgraduateProgram;
     }
 }

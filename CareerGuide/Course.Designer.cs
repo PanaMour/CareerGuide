@@ -66,6 +66,7 @@
             // 
             // button3
             // 
+            button3.Enabled = false;
             button3.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             button3.Location = new Point(464, 247);
             button3.Name = "button3";

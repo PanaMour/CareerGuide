@@ -22,12 +22,9 @@ namespace CareerGuide
 
         private void InitializeRecommendation()
         {
-            // Set the labels' text and style them professionally
             labelTitle.Text = "Possible Career Paths";
-            labelTitle.Font = new Font("Arial", 18, FontStyle.Bold);
-            labelTitle.ForeColor = Color.FromArgb(64, 64, 64);
 
-            labelDescription1.Text = "Based on your performance on these courses:";
+            labelDescription1.Text = "Recommended postgraduate program based on performance analysis:";
             labelDescription1.Font = new Font("Arial", 14, FontStyle.Regular);
             labelDescription1.ForeColor = Color.FromArgb(64, 64, 64);
 
@@ -37,17 +34,51 @@ namespace CareerGuide
 
             // Fetch the recommended career and related courses from the database
             string recommendedCareer = GetRecommendedCareer();
-            List<string> relatedCourses = GetRelatedCourses();
 
             // Display the recommended career and related courses in the labels
             labelRecommendedCareer.Text = recommendedCareer;
-            labelRelatedCourses.Text = string.Join(", ", relatedCourses);
+
+            // Recommend a postgraduate studies program based on the career choice
+            string postgraduateProgram = GetPostgraduateProgram(recommendedCareer);
+            labelPostgraduateProgram.Text = postgraduateProgram;
+        }
+
+        private string GetPostgraduateProgram(string recommendedCareer)
+        {
+            switch (recommendedCareer)
+            {
+                case "Researcher":
+                    return "Ph.D. in Computer Science";
+
+                case "Data Scientist":
+                    return "Master's in Data Science and Analytics";
+
+                case "AI Specialist":
+                    return "Master's in Artificial Intelligence and Machine Learning";
+
+                case "Software Developer":
+                    return "Master's in Software Engineering with a focus on Software Development";
+
+                case "Software Engineer":
+                    return "Master's in Software Engineering with a focus on Software Engineering Practices";
+
+                case "Systems Programmer":
+                    return "Master's in Computer Systems with a focus on Systems Programming";
+
+                case "UX Designer":
+                    return "Master's in Human-Computer Interaction and User Experience Design";
+
+                case "Network Specialist":
+                    return "Master's in Network Engineering with a focus on Network Security";
+
+                default:
+                    return "No specific postgraduate program recommendation";
+            }
         }
 
         private string GetRecommendedCareer()
         {
-            double maxScore = 0;
-            string recommendedCareer = string.Empty;
+            Dictionary<string, double> careerScores = new Dictionary<string, double>();
 
             string connectionString = ConfigurationManager.ConnectionStrings["CareerGuide"].ConnectionString;
 
@@ -56,7 +87,7 @@ namespace CareerGuide
                 conn.Open();
 
                 // Fetch all final scores and corresponding grade values from the database
-                string query = "SELECT final_score, grade FROM grade WHERE final_score IS NOT NULL";
+                string query = "SELECT final_score, grade, course_id FROM grade WHERE final_score IS NOT NULL";
                 using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
                 {
                     using (SQLiteDataReader reader = cmd.ExecuteReader())
@@ -65,58 +96,56 @@ namespace CareerGuide
                         {
                             double finalScore = reader.GetDouble(0);
                             double grade = reader.GetDouble(1);
+                            int courseId = reader.GetInt32(2);
 
-                            double careerScore = (finalScore / 25.0) * grade;
+                            // Get career names for the given course
+                            string career1 = GetCareerNameFromCourseId(courseId, "career1");
+                            string career2 = GetCareerNameFromCourseId(courseId, "career2");
+                            string career3 = GetCareerNameFromCourseId(courseId, "career3");
 
-                            if (careerScore > maxScore)
-                            {
-                                maxScore = careerScore;
-                                recommendedCareer = GetCareerNameFromCourseId(StudentInformation.CourseId);
-                                MessageBox.Show(recommendedCareer, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
+                            // Calculate career scores based on the weights
+                            double career1Score = finalScore * 1.0;
+                            double career2Score = finalScore * 0.8;
+                            double career3Score = finalScore * 0.5;
+
+                            // Update career scores in the dictionary
+                            if (!string.IsNullOrEmpty(career1))
+                                AddToCareerScore(careerScores, career1, career1Score);
+                            if (!string.IsNullOrEmpty(career2))
+                                AddToCareerScore(careerScores, career2, career2Score);
+                            if (!string.IsNullOrEmpty(career3))
+                                AddToCareerScore(careerScores, career3, career3Score);
                         }
                     }
                 }
 
                 conn.Close();
+            }
+
+            // Find the career with the highest score
+            double maxScore = 0;
+            string recommendedCareer = string.Empty;
+            foreach (var careerScore in careerScores)
+            {
+                if (careerScore.Value > maxScore)
+                {
+                    maxScore = careerScore.Value;
+                    recommendedCareer = careerScore.Key;
+                }
             }
 
             return recommendedCareer;
         }
 
-        private List<string> GetRelatedCourses()
+        private void AddToCareerScore(Dictionary<string, double> careerScores, string career, double score)
         {
-            List<string> relatedCourses = new List<string>();
-
-            string connectionString = ConfigurationManager.ConnectionStrings["CareerGuide"].ConnectionString;
-
-            using (SQLiteConnection conn = new SQLiteConnection(connectionString))
-            {
-                conn.Open();
-
-                // Fetch all courses related to the recommended career
-                string query = "SELECT course_name FROM course WHERE career1 = @career OR career2 = @career OR career3 = @career";
-                using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@career", labelRecommendedCareer.Text);
-
-                    using (SQLiteDataReader reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            string courseName = reader.GetString(0);
-                            relatedCourses.Add(courseName);
-                        }
-                    }
-                }
-
-                conn.Close();
-            }
-
-            return relatedCourses;
+            if (careerScores.ContainsKey(career))
+                careerScores[career] += score;
+            else
+                careerScores[career] = score;
         }
 
-        private string GetCareerNameFromCourseId(int courseId)
+        private string GetCareerNameFromCourseId(int courseId, string careerColumn)
         {
             string careerName = string.Empty;
 
@@ -126,8 +155,8 @@ namespace CareerGuide
             {
                 conn.Open();
 
-                // Fetch the career1 for the given courseId
-                string query = "SELECT career1 FROM course WHERE id = @courseId";
+                // Fetch the career name for the given courseId and career column
+                string query = $"SELECT {careerColumn} FROM course WHERE id = @courseId";
                 using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@courseId", courseId);
@@ -151,6 +180,11 @@ namespace CareerGuide
             this.Hide();
             new Home().ShowDialog();
             this.Close();
+        }
+
+        private void labelRelatedCourses_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
