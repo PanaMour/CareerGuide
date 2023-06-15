@@ -23,6 +23,7 @@
             dataGridViewGrades = new DataGridView();
             backButton = new Button();
             comboBox1 = new ComboBox();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridViewGrades).BeginInit();
             SuspendLayout();
             // 
@@ -33,7 +34,7 @@
             labelStudentName.Name = "labelStudentName";
             labelStudentName.Size = new Size(227, 37);
             labelStudentName.TabIndex = 1;
-            labelStudentName.Text = "Student: (Name)";
+            labelStudentName.Text = "Student:";
             // 
             // dataGridViewGrades
             // 
@@ -74,12 +75,23 @@
             comboBox1.TabIndex = 5;
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
+            // label1
+            // 
+            label1.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.CadetBlue;
+            label1.Location = new Point(168, 61);
+            label1.Name = "label1";
+            label1.Size = new Size(514, 37);
+            label1.TabIndex = 6;
+            label1.Text = "(Name)";
+            // 
             // Grades
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AntiqueWhite;
             ClientSize = new Size(698, 311);
+            Controls.Add(label1);
             Controls.Add(comboBox1);
             Controls.Add(dataGridViewGrades);
             Controls.Add(labelStudentName);
@@ -96,5 +108,6 @@
         }
 
         private ComboBox comboBox1;
+        private Label label1;
     }
 }
