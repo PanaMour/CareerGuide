@@ -97,7 +97,6 @@ namespace CareerGuide
                     cmd.Parameters.AddWithValue("@finalScore", finalScore);
                     cmd.Parameters.AddWithValue("@studentId", StudentInformation.StudentId);
                     cmd.Parameters.AddWithValue("@courseId", StudentInformation.CourseId);
-                    MessageBox.Show(finalScore.ToString(), "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     cmd.ExecuteNonQuery();
                 }
 

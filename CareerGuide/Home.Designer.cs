@@ -72,7 +72,7 @@
             // 
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox1.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
-            comboBox1.Items.AddRange(new object[] { "Semester 1", "Semester 2", "Semester 3", "Semester 4", "Semester 5", "Semester 6" });
+            comboBox1.Items.AddRange(new object[] { "Semester 1", "Semester 2" });
             comboBox1.Location = new Point(307, 131);
             comboBox1.Margin = new Padding(4);
             comboBox1.Name = "comboBox1";
