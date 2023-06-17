@@ -103,5 +103,10 @@ namespace CareerGuide
         {
             button3.Enabled = true;
         }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, AppDomain.CurrentDomain.BaseDirectory + "careerguide.chm", HelpNavigator.TopicId, "13");
+        }
     }
 }

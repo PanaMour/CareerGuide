@@ -39,6 +39,8 @@
             button7 = new Button();
             button8 = new Button();
             button5 = new Button();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -176,12 +178,24 @@
             button5.UseVisualStyleBackColor = false;
             button5.Click += button5_Click;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.helpicon;
+            pictureBox1.Location = new Point(499, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(67, 57);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 8;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
+            // 
             // Home
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AntiqueWhite;
-            ClientSize = new Size(611, 513);
+            ClientSize = new Size(578, 513);
+            Controls.Add(pictureBox1);
             Controls.Add(button5);
             Controls.Add(button8);
             Controls.Add(button7);
@@ -201,6 +215,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Home";
             Load += Home_Load;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -218,5 +233,6 @@
         private Button button7;
         private Button button8;
         private Button button5;
+        private PictureBox pictureBox1;
     }
 }

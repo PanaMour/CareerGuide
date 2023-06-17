@@ -71,11 +71,13 @@ namespace CareerGuide
             label13 = new Label();
             label14 = new Label();
             label15 = new Label();
+            pictureBox1 = new PictureBox();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
             groupBox4.SuspendLayout();
             groupBox5.SuspendLayout();
+            ((ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // submitButton
@@ -586,12 +588,24 @@ namespace CareerGuide
             label15.TabIndex = 21;
             label15.Text = "Very much";
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.helpiconquestion;
+            pictureBox1.Location = new Point(425, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(48, 39);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 22;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
+            // 
             // Questionnaire
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SeaShell;
             ClientSize = new Size(485, 502);
+            Controls.Add(pictureBox1);
             Controls.Add(label15);
             Controls.Add(label14);
             Controls.Add(label13);
@@ -630,6 +644,7 @@ namespace CareerGuide
             groupBox4.PerformLayout();
             groupBox5.ResumeLayout(false);
             groupBox5.PerformLayout();
+            ((ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -645,5 +660,6 @@ namespace CareerGuide
         private Label label13;
         private Label label14;
         private Label label15;
+        private PictureBox pictureBox1;
     }
 }

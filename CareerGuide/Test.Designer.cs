@@ -25,6 +25,8 @@
             button2 = new Button();
             buttonBack = new Button();
             button3 = new Button();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // button1
@@ -55,7 +57,7 @@
             buttonBack.BackColor = Color.FromArgb(66, 139, 202);
             buttonBack.FlatStyle = FlatStyle.Flat;
             buttonBack.ForeColor = Color.White;
-            buttonBack.Location = new Point(137, 12);
+            buttonBack.Location = new Point(12, 12);
             buttonBack.Name = "buttonBack";
             buttonBack.Size = new Size(80, 30);
             buttonBack.TabIndex = 2;
@@ -75,12 +77,24 @@
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.helpicon;
+            pictureBox1.Location = new Point(290, 3);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(48, 39);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 10;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
+            // 
             // Test
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AntiqueWhite;
             ClientSize = new Size(350, 286);
+            Controls.Add(pictureBox1);
             Controls.Add(button3);
             Controls.Add(buttonBack);
             Controls.Add(button1);
@@ -92,6 +106,7 @@
             Name = "Test";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Test";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -99,5 +114,6 @@
 
         private Button buttonBack;
         private Button button3;
+        private PictureBox pictureBox1;
     }
 }

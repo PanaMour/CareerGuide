@@ -27,6 +27,8 @@
             choiceBRadioButton = new RadioButton();
             choiceCRadioButton = new RadioButton();
             submitButton = new Button();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // questionLabel
@@ -77,12 +79,24 @@
             submitButton.UseVisualStyleBackColor = true;
             submitButton.Click += submitButton_Click;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.helpiconquestion;
+            pictureBox1.Location = new Point(444, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(48, 39);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 10;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
+            // 
             // Question
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SeaShell;
             ClientSize = new Size(504, 211);
+            Controls.Add(pictureBox1);
             Controls.Add(submitButton);
             Controls.Add(choiceCRadioButton);
             Controls.Add(choiceBRadioButton);
@@ -93,8 +107,11 @@
             Name = "Question";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Question";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
+
+        private PictureBox pictureBox1;
     }
 }

@@ -58,6 +58,9 @@ namespace CareerGuide
             }
         }
 
-
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, AppDomain.CurrentDomain.BaseDirectory + "careerguide.chm", HelpNavigator.TopicId, "11");
+        }
     }
 }

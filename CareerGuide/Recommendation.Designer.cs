@@ -34,6 +34,8 @@
             labelRecommendedCareer = new Label();
             buttonBack = new Button();
             labelPostgraduateProgram = new Label();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // labelTitle
@@ -114,12 +116,24 @@
             labelPostgraduateProgram.TabIndex = 13;
             labelPostgraduateProgram.Text = "Master's in Software Engineering with a focus on Software Engineering Practices";
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.helpiconrec1;
+            pictureBox1.Location = new Point(566, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(65, 54);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 14;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
+            // 
             // Recommendation
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Menu;
             ClientSize = new Size(650, 281);
+            Controls.Add(pictureBox1);
             Controls.Add(labelPostgraduateProgram);
             Controls.Add(buttonBack);
             Controls.Add(labelTitle);
@@ -133,11 +147,13 @@
             Name = "Recommendation";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Recommendation";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         private Button buttonBack;
         private Label labelPostgraduateProgram;
+        private PictureBox pictureBox1;
     }
 }

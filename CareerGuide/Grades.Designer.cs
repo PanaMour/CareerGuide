@@ -24,7 +24,9 @@
             backButton = new Button();
             comboBox1 = new ComboBox();
             label1 = new Label();
+            pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dataGridViewGrades).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // labelStudentName
@@ -85,12 +87,24 @@
             label1.TabIndex = 6;
             label1.Text = "(Name)";
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.helpicon;
+            pictureBox1.Location = new Point(615, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(67, 57);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 9;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
+            // 
             // Grades
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AntiqueWhite;
             ClientSize = new Size(698, 311);
+            Controls.Add(pictureBox1);
             Controls.Add(label1);
             Controls.Add(comboBox1);
             Controls.Add(dataGridViewGrades);
@@ -104,10 +118,12 @@
             Text = "Grades";
             Load += Grades_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridViewGrades).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
         private ComboBox comboBox1;
         private Label label1;
+        private PictureBox pictureBox1;
     }
 }
