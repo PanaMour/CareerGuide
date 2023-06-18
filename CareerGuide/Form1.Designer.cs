@@ -45,7 +45,6 @@
             usernameTextBox.PlaceholderText = "Username";
             usernameTextBox.Size = new Size(320, 25);
             usernameTextBox.TabIndex = 1;
-            usernameTextBox.Text = "student1";
             // 
             // passwordTextBox
             // 
@@ -56,7 +55,6 @@
             passwordTextBox.PlaceholderText = "Password";
             passwordTextBox.Size = new Size(320, 25);
             passwordTextBox.TabIndex = 2;
-            passwordTextBox.Text = "password1";
             // 
             // loginButton
             // 

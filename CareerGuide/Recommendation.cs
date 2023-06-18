@@ -87,9 +87,11 @@ namespace CareerGuide
                 conn.Open();
 
                 // Fetch all final scores and corresponding grade values from the database
-                string query = "SELECT final_score, grade, course_id FROM grade WHERE final_score IS NOT NULL";
+                string query = "SELECT final_score, grade, course_id FROM grade WHERE final_score IS NOT NULL AND student_id = @studentId";
                 using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
                 {
+                    cmd.Parameters.AddWithValue("@studentId", StudentInformation.StudentId);
+
                     using (SQLiteDataReader reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
