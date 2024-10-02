@@ -189,5 +189,12 @@ namespace CareerGuide
         {
             Help.ShowHelp(this, AppDomain.CurrentDomain.BaseDirectory + "careerguide.chm", HelpNavigator.TopicId, "12");
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new Assessment().ShowDialog();
+            this.Close();
+        }
     }
 }

@@ -40,6 +40,7 @@
             button8 = new Button();
             button5 = new Button();
             pictureBox1 = new PictureBox();
+            button6 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -169,7 +170,7 @@
             button5.BackColor = Color.White;
             button5.Cursor = Cursors.Hand;
             button5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            button5.Location = new Point(48, 280);
+            button5.Location = new Point(48, 352);
             button5.Margin = new Padding(4);
             button5.Name = "button5";
             button5.Size = new Size(203, 64);
@@ -189,12 +190,27 @@
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
             // 
+            // button6
+            // 
+            button6.BackColor = Color.White;
+            button6.Cursor = Cursors.Hand;
+            button6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            button6.Location = new Point(48, 280);
+            button6.Margin = new Padding(4);
+            button6.Name = "button6";
+            button6.Size = new Size(203, 64);
+            button6.TabIndex = 9;
+            button6.Text = "Personalized Learning Assessment";
+            button6.UseVisualStyleBackColor = false;
+            button6.Click += button6_Click;
+            // 
             // Home
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AntiqueWhite;
             ClientSize = new Size(578, 513);
+            Controls.Add(button6);
             Controls.Add(pictureBox1);
             Controls.Add(button5);
             Controls.Add(button8);
@@ -234,5 +250,6 @@
         private Button button8;
         private Button button5;
         private PictureBox pictureBox1;
+        private Button button6;
     }
 }
