@@ -105,24 +105,27 @@ namespace CareerGuide
             // 
             choiceARadioButton1.Location = new Point(14, 20);
             choiceARadioButton1.Name = "choiceARadioButton1";
-            choiceARadioButton1.Size = new Size(104, 24);
+            choiceARadioButton1.Size = new Size(380, 24);
             choiceARadioButton1.TabIndex = 0;
+            choiceARadioButton1.Tag = "Analytical";
             choiceARadioButton1.Text = "A) I analyze the problem thoroughly and make data-driven decisions.";
             // 
             // choiceBRadioButton1
             // 
             choiceBRadioButton1.Location = new Point(14, 45);
             choiceBRadioButton1.Name = "choiceBRadioButton1";
-            choiceBRadioButton1.Size = new Size(104, 24);
+            choiceBRadioButton1.Size = new Size(380, 24);
             choiceBRadioButton1.TabIndex = 1;
+            choiceBRadioButton1.Tag = "Creative";
             choiceBRadioButton1.Text = "B) I brainstorm creative solutions and think outside the box.";
             // 
             // choiceCRadioButton1
             // 
             choiceCRadioButton1.Location = new Point(14, 70);
             choiceCRadioButton1.Name = "choiceCRadioButton1";
-            choiceCRadioButton1.Size = new Size(104, 24);
+            choiceCRadioButton1.Size = new Size(380, 24);
             choiceCRadioButton1.TabIndex = 2;
+            choiceCRadioButton1.Tag = "Practical";
             choiceCRadioButton1.Text = "C) I rely on practical experience and hands-on experimentation.";
             // 
             // groupBox2
@@ -140,24 +143,27 @@ namespace CareerGuide
             // 
             choiceARadioButton2.Location = new Point(14, 20);
             choiceARadioButton2.Name = "choiceARadioButton2";
-            choiceARadioButton2.Size = new Size(104, 24);
+            choiceARadioButton2.Size = new Size(380, 24);
             choiceARadioButton2.TabIndex = 0;
+            choiceARadioButton2.Tag = "Analytical";
             choiceARadioButton2.Text = "A) Reading in-depth materials, analyzing data, and understanding the theory.";
             // 
             // choiceBRadioButton2
             // 
             choiceBRadioButton2.Location = new Point(14, 45);
             choiceBRadioButton2.Name = "choiceBRadioButton2";
-            choiceBRadioButton2.Size = new Size(104, 24);
+            choiceBRadioButton2.Size = new Size(380, 24);
             choiceBRadioButton2.TabIndex = 1;
+            choiceBRadioButton2.Tag = "Creative";
             choiceBRadioButton2.Text = "B) Watching tutorials or demonstrations, visualizing concepts creatively.";
             // 
             // choiceCRadioButton2
             // 
             choiceCRadioButton2.Location = new Point(14, 70);
             choiceCRadioButton2.Name = "choiceCRadioButton2";
-            choiceCRadioButton2.Size = new Size(104, 24);
+            choiceCRadioButton2.Size = new Size(380, 24);
             choiceCRadioButton2.TabIndex = 2;
+            choiceCRadioButton2.Tag = "Practical";
             choiceCRadioButton2.Text = "C) Jumping straight into real-world applications and learning by doing.";
             // 
             // groupBox3
@@ -175,24 +181,27 @@ namespace CareerGuide
             // 
             choiceARadioButton3.Location = new Point(14, 20);
             choiceARadioButton3.Name = "choiceARadioButton3";
-            choiceARadioButton3.Size = new Size(104, 24);
+            choiceARadioButton3.Size = new Size(380, 24);
             choiceARadioButton3.TabIndex = 0;
+            choiceARadioButton3.Tag = "Analytical";
             choiceARadioButton3.Text = "A) Research-based projects requiring deep analysis and data study.";
             // 
             // choiceBRadioButton3
             // 
             choiceBRadioButton3.Location = new Point(14, 45);
             choiceBRadioButton3.Name = "choiceBRadioButton3";
-            choiceBRadioButton3.Size = new Size(104, 24);
+            choiceBRadioButton3.Size = new Size(380, 24);
             choiceBRadioButton3.TabIndex = 1;
+            choiceBRadioButton3.Tag = "Creative";
             choiceBRadioButton3.Text = "B) Projects where I can design and innovate new solutions.";
             // 
             // choiceCRadioButton3
             // 
             choiceCRadioButton3.Location = new Point(14, 70);
             choiceCRadioButton3.Name = "choiceCRadioButton3";
-            choiceCRadioButton3.Size = new Size(104, 24);
+            choiceCRadioButton3.Size = new Size(380, 24);
             choiceCRadioButton3.TabIndex = 2;
+            choiceCRadioButton3.Tag = "Practical";
             choiceCRadioButton3.Text = "C) Hands-on projects with tangible results and practical applications.";
             // 
             // groupBox4
@@ -210,24 +219,27 @@ namespace CareerGuide
             // 
             choiceARadioButton4.Location = new Point(14, 20);
             choiceARadioButton4.Name = "choiceARadioButton4";
-            choiceARadioButton4.Size = new Size(104, 24);
+            choiceARadioButton4.Size = new Size(380, 24);
             choiceARadioButton4.TabIndex = 0;
+            choiceARadioButton4.Tag = "Analytical";
             choiceARadioButton4.Text = "A) Independently, with lots of data and analysis.";
             // 
             // choiceBRadioButton4
             // 
             choiceBRadioButton4.Location = new Point(14, 45);
             choiceBRadioButton4.Name = "choiceBRadioButton4";
-            choiceBRadioButton4.Size = new Size(104, 24);
+            choiceBRadioButton4.Size = new Size(380, 24);
             choiceBRadioButton4.TabIndex = 1;
+            choiceBRadioButton4.Tag = "Creative";
             choiceBRadioButton4.Text = "B) In a collaborative, creative environment.";
             // 
             // choiceCRadioButton4
             // 
             choiceCRadioButton4.Location = new Point(14, 70);
             choiceCRadioButton4.Name = "choiceCRadioButton4";
-            choiceCRadioButton4.Size = new Size(104, 24);
+            choiceCRadioButton4.Size = new Size(380, 24);
             choiceCRadioButton4.TabIndex = 2;
+            choiceCRadioButton4.Tag = "Practical";
             choiceCRadioButton4.Text = "C) In a hands-on environment with practical tasks.";
             // 
             // groupBox5
@@ -245,24 +257,27 @@ namespace CareerGuide
             // 
             choiceARadioButton5.Location = new Point(14, 20);
             choiceARadioButton5.Name = "choiceARadioButton5";
-            choiceARadioButton5.Size = new Size(104, 24);
+            choiceARadioButton5.Size = new Size(380, 24);
             choiceARadioButton5.TabIndex = 0;
+            choiceARadioButton5.Tag = "Analytical";
             choiceARadioButton5.Text = "A) Making discoveries or solving complex problems.";
             // 
             // choiceBRadioButton5
             // 
             choiceBRadioButton5.Location = new Point(14, 45);
             choiceBRadioButton5.Name = "choiceBRadioButton5";
-            choiceBRadioButton5.Size = new Size(104, 24);
+            choiceBRadioButton5.Size = new Size(380, 24);
             choiceBRadioButton5.TabIndex = 1;
+            choiceBRadioButton5.Tag = "Creative";
             choiceBRadioButton5.Text = "B) Designing products or creating new solutions.";
             // 
             // choiceCRadioButton5
             // 
             choiceCRadioButton5.Location = new Point(14, 70);
             choiceCRadioButton5.Name = "choiceCRadioButton5";
-            choiceCRadioButton5.Size = new Size(104, 24);
+            choiceCRadioButton5.Size = new Size(380, 24);
             choiceCRadioButton5.TabIndex = 2;
+            choiceCRadioButton5.Tag = "Practical";
             choiceCRadioButton5.Text = "C) Developing systems or managing networks.";
             // 
             // label2

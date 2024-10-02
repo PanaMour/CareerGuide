@@ -1,14 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Data.SQLite;
 using System.Configuration;
+using System.Data.SQLite;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace CareerGuide
 {
@@ -32,13 +27,10 @@ namespace CareerGuide
             labelDescription2.Font = new Font("Arial", 14, FontStyle.Regular);
             labelDescription2.ForeColor = Color.FromArgb(64, 64, 64);
 
-            // Fetch the recommended career and related courses from the database
             string recommendedCareer = GetRecommendedCareer();
 
-            // Display the recommended career and related courses in the labels
             labelRecommendedCareer.Text = recommendedCareer;
 
-            // Recommend a postgraduate studies program based on the career choice
             string postgraduateProgram = GetPostgraduateProgram(recommendedCareer);
             labelPostgraduateProgram.Text = postgraduateProgram;
         }
@@ -79,6 +71,8 @@ namespace CareerGuide
         private string GetRecommendedCareer()
         {
             Dictionary<string, double> careerScores = new Dictionary<string, double>();
+            string studentRole = GetStudentRole();
+            double roleBonus = 1.2;
 
             string connectionString = ConfigurationManager.ConnectionStrings["CareerGuide"].ConnectionString;
 
@@ -86,7 +80,6 @@ namespace CareerGuide
             {
                 conn.Open();
 
-                // Fetch all final scores and corresponding grade values from the database
                 string query = "SELECT final_score, grade, course_id FROM grade WHERE final_score IS NOT NULL AND student_id = @studentId";
                 using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
                 {
@@ -100,17 +93,18 @@ namespace CareerGuide
                             double grade = reader.GetDouble(1);
                             int courseId = reader.GetInt32(2);
 
-                            // Get career names for the given course
                             string career1 = GetCareerNameFromCourseId(courseId, "career1");
                             string career2 = GetCareerNameFromCourseId(courseId, "career2");
                             string career3 = GetCareerNameFromCourseId(courseId, "career3");
 
-                            // Calculate career scores based on the weights
                             double career1Score = finalScore * 1.0;
                             double career2Score = finalScore * 0.8;
                             double career3Score = finalScore * 0.5;
 
-                            // Update career scores in the dictionary
+                            career1Score = ApplyRoleBonus(career1Score, career1, studentRole, roleBonus);
+                            career2Score = ApplyRoleBonus(career2Score, career2, studentRole, roleBonus);
+                            career3Score = ApplyRoleBonus(career3Score, career3, studentRole, roleBonus);
+
                             if (!string.IsNullOrEmpty(career1))
                                 AddToCareerScore(careerScores, career1, career1Score);
                             if (!string.IsNullOrEmpty(career2))
@@ -123,8 +117,6 @@ namespace CareerGuide
 
                 conn.Close();
             }
-
-            // Find the career with the highest score
             double maxScore = 0;
             string recommendedCareer = string.Empty;
             foreach (var careerScore in careerScores)
@@ -137,6 +129,52 @@ namespace CareerGuide
             }
 
             return recommendedCareer;
+        }
+
+        private string GetStudentRole()
+        {
+            string role = string.Empty;
+            string connectionString = ConfigurationManager.ConnectionStrings["CareerGuide"].ConnectionString;
+
+            using (SQLiteConnection conn = new SQLiteConnection(connectionString))
+            {
+                conn.Open();
+
+                // Query the role for the specific student
+                string query = "SELECT role FROM student WHERE student_id = @studentId";
+                using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@studentId", StudentInformation.StudentId);
+
+                    object result = cmd.ExecuteScalar();
+                    if (result != null && !Convert.IsDBNull(result))
+                    {
+                        role = Convert.ToString(result);
+                    }
+                }
+
+                conn.Close();
+            }
+
+            return role;
+        }
+
+        private double ApplyRoleBonus(double careerScore, string career, string studentRole, double roleBonus)
+        {
+            // Adjust scores based on the student's role and career
+            if (studentRole == "Analytical Researcher" && (career == "Researcher" || career == "Data Scientist" || career == "AI Specialist"))
+            {
+                return careerScore * roleBonus;
+            }
+            else if (studentRole == "Creative Innovator" && (career == "UX Designer" || career == "Software Developer" || career == "Software Engineer"))
+            {
+                return careerScore * roleBonus;
+            }
+            else if (studentRole == "Practical System Builder" && (career == "Systems Programmer" || career == "Network Specialist"))
+            {
+                return careerScore * roleBonus;
+            }
+            return careerScore;
         }
 
         private void AddToCareerScore(Dictionary<string, double> careerScores, string career, double score)
@@ -157,7 +195,6 @@ namespace CareerGuide
             {
                 conn.Open();
 
-                // Fetch the career name for the given courseId and career column
                 string query = $"SELECT {careerColumn} FROM course WHERE id = @courseId";
                 using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
                 {
@@ -178,7 +215,6 @@ namespace CareerGuide
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            // Handle back button click event
             this.Hide();
             new Home().ShowDialog();
             this.Close();

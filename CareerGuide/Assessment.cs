@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Configuration;
 using System.Data;
 using System.Data.SQLite;
@@ -15,7 +14,9 @@ namespace CareerGuide
     public partial class Assessment : Form
     {
         private bool isSubmitted = false;
-        private int finalScore = 0;
+        private int analyticalScore = 0;
+        private int creativeScore = 0;
+        private int practicalScore = 0;
 
         public Assessment()
         {
@@ -31,27 +32,26 @@ namespace CareerGuide
 
         private void submitButton_Click(object sender, EventArgs e)
         {
-            // Handle submit button click event
-            /*if (IsRadioButtonSelected(groupBox1) &&
+            if (IsRadioButtonSelected(groupBox1) &&
                 IsRadioButtonSelected(groupBox2) &&
                 IsRadioButtonSelected(groupBox3) &&
                 IsRadioButtonSelected(groupBox4) &&
                 IsRadioButtonSelected(groupBox5))
             {
-                // All radio buttons are selected
                 isSubmitted = true;
-                CalculateFinalScore();
-                SubmitToDatabase();
-                MessageBox.Show("Assessment submitted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                CalculateScores();
+                string role = DetermineRole();
+                UpdateStudentRole(role);
+                MessageBox.Show($"Assessment submitted successfully! Your role: {role}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 this.Hide();
-                new Course().ShowDialog();
+                new Home().ShowDialog();
                 this.Close();
             }
             else
             {
-                // At least one group has no radio button selected
                 MessageBox.Show("Please answer all the questions.", "Incomplete", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }*/
+            }
         }
 
         private bool IsRadioButtonSelected(GroupBox groupBox)
@@ -59,30 +59,57 @@ namespace CareerGuide
             return groupBox.Controls.OfType<RadioButton>().Any(rb => rb.Checked);
         }
 
-        private void CalculateFinalScore()
+        private void CalculateScores()
         {
-            /*finalScore = GetQuestionScore(groupBox1) +
-                         GetQuestionScore(groupBox2) +
-                         GetQuestionScore(groupBox3) +
-                         GetQuestionScore(groupBox4) +
-                         GetQuestionScore(groupBox5);*/
+            analyticalScore = GetScoreForRole(groupBox1, "Analytical") +
+                              GetScoreForRole(groupBox2, "Analytical") +
+                              GetScoreForRole(groupBox3, "Analytical") +
+                              GetScoreForRole(groupBox4, "Analytical") +
+                              GetScoreForRole(groupBox5, "Analytical");
+
+            creativeScore = GetScoreForRole(groupBox1, "Creative") +
+                            GetScoreForRole(groupBox2, "Creative") +
+                            GetScoreForRole(groupBox3, "Creative") +
+                            GetScoreForRole(groupBox4, "Creative") +
+                            GetScoreForRole(groupBox5, "Creative");
+
+            practicalScore = GetScoreForRole(groupBox1, "Practical") +
+                             GetScoreForRole(groupBox2, "Practical") +
+                             GetScoreForRole(groupBox3, "Practical") +
+                             GetScoreForRole(groupBox4, "Practical") +
+                             GetScoreForRole(groupBox5, "Practical");
         }
 
-        private int GetQuestionScore(GroupBox groupBox)
+        private int GetScoreForRole(GroupBox groupBox, string role)
         {
             RadioButton selectedRadioButton = groupBox.Controls.OfType<RadioButton>().FirstOrDefault(rb => rb.Checked);
             if (selectedRadioButton != null)
             {
-                // Extract the score from the radio button's text
-                if (int.TryParse(selectedRadioButton.Text, out int score))
+                if (selectedRadioButton.Tag != null && selectedRadioButton.Tag.ToString() == role)
                 {
-                    return score;
+                    return 1;
                 }
             }
-            return 0; // Return 0 if no radio button is selected or an error occurred
+            return 0;
         }
 
-        private void SubmitToDatabase()
+        private string DetermineRole()
+        {
+            if (analyticalScore >= creativeScore && analyticalScore >= practicalScore)
+            {
+                return "Analytical Researcher";
+            }
+            else if (creativeScore >= analyticalScore && creativeScore >= practicalScore)
+            {
+                return "Creative Innovator";
+            }
+            else
+            {
+                return "Practical System Builder";
+            }
+        }
+
+        private void UpdateStudentRole(string role)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["CareerGuide"].ConnectionString;
 
@@ -90,13 +117,12 @@ namespace CareerGuide
             {
                 conn.Open();
 
-                string query = "UPDATE grade SET final_score = @finalScore WHERE student_id = @studentId AND course_id = @courseId";
+                string query = "UPDATE student SET role = @role WHERE id = @id";
 
                 using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@finalScore", finalScore);
-                    cmd.Parameters.AddWithValue("@studentId", StudentInformation.StudentId);
-                    cmd.Parameters.AddWithValue("@courseId", StudentInformation.CourseId);
+                    cmd.Parameters.AddWithValue("@role", role);
+                    cmd.Parameters.AddWithValue("@id", StudentInformation.StudentId);
                     cmd.ExecuteNonQuery();
                 }
 
