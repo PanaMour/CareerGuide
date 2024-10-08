@@ -68,13 +68,13 @@ namespace CareerGuide
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            currentIndex = (currentIndex + 1) % GetPdfFiles(StudentInformation.CourseId).Count;  // Cycle to the start when reaching the end
+            currentIndex = (currentIndex + 1) % GetPdfFiles(StudentInformation.CourseId).Count;
             LoadPdf(GetPdfFiles(StudentInformation.CourseId)[currentIndex]);
         }
 
         private void btnPrev_Click(object sender, EventArgs e)
         {
-            currentIndex = (currentIndex - 1 + GetPdfFiles(StudentInformation.CourseId).Count) % GetPdfFiles(StudentInformation.CourseId).Count;  // Cycle to the end when reaching the start
+            currentIndex = (currentIndex - 1 + GetPdfFiles(StudentInformation.CourseId).Count) % GetPdfFiles(StudentInformation.CourseId).Count;
             LoadPdf(GetPdfFiles(StudentInformation.CourseId)[currentIndex]);
         }
     }

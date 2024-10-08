@@ -167,7 +167,7 @@ namespace CareerGuide
                 conn.Close();
             }
 
-            new Content().ShowDialog();
+            new AuditoryContent().ShowDialog();
         }
 
         private void RearrangeContent()
